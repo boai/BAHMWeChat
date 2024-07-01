@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "BAHomeModule",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet",
+      "2in1"
+    ]
+  }
+}
