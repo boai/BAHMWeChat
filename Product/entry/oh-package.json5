@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "Please describe the basic information.",
   "main": "",
-  "author": "",
-  "license": "",
+  "author": "boai",
+  "license": "Apache-2.0",
   "dependencies": {
     "@ohos/bacommonmodule": "file:../../Features/BACommonModule",
     "@ohos/bahomemodule": "file:../../Features/BAHomeModule",
+    "@ohos/baaddressbookmodule": "file:../../Features/BAAddressBookModule",
+    "@ohos/badiscovermodule": "file:../../Features/BADiscoverModule",
     "@ohos/baminemodule": "file:../../Features/BAMineModule"
   }
 }

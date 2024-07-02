@@ -10,7 +10,7 @@ import { BAMineIndex } from './BAMineIndex'
 @Component
 export struct BATabbarIndex {
 
-  @State currentPageIndex: number = 0
+  @State currentPageIndex: number = 3
   @State tabData: Array<BATabbarModel> = BATabbarViewModel.getTabbarData()
 
   @Builder
@@ -20,7 +20,7 @@ export struct BATabbarIndex {
         .width(24)
         .height(24)
       Text(item.title)//"#1AAD19"
-        .fontColor(this.currentPageIndex === index ? $r('app.color.theme') : Color.Gray)
+        .fontColor(this.currentPageIndex === index ? $r('app.color.theme') : Color.Black)
         .fontSize(12)
         .margin({ top: 4 })
         .opacity(this.currentPageIndex === index ? 1 : 0.7)
@@ -48,6 +48,7 @@ export struct BATabbarIndex {
           .tabBar(this.tabbarBuilder(item, index))
         }, (item: BATabbarModel) => JSON.stringify(item))
       }
+      .animationDuration(0)
       .onChange((index: number) => {
         this.currentPageIndex = index
       })

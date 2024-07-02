@@ -42,6 +42,14 @@
     {
       "name": "BACommonModule",
       "srcPath": "./Features/BACommonModule",
+    },
+    {
+      "name": "BADiscoverModule",
+      "srcPath": "./Features/BADiscoverModule",
+    },
+    {
+      "name": "BAAddressBookModule",
+      "srcPath": "./Features/BAAddressBookModule",
     }
   ]
 }

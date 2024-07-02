@@ -4,16 +4,14 @@ import { BAMineViewModel, BAMineViewArrObject, BAMineViewItem } from '../viewmod
 @Entry
 @Component
 export struct BAMinePage {
-  @State message: string = '个人中心';
-  scroller: Scroller = new Scroller()
+  private listScroller: Scroller = new Scroller();
 
   build() {
-
-    Column() {
+    Scroll() {
       List({ space: 10, initialIndex: 0 }) {
-        ForEach(BAMineViewModel.datas, (item: BAMineViewArrObject, index?: number) => {
+        ForEach(BAMineViewModel.datas, (item: BAMineViewArrObject, section?: number) => {
           ListItemGroup({ style: item.style }) {
-            if (index == 0) {
+            if (section == 0) {
               ListItem() {
                 BATopUserView()
                   .width(BACommonConstants.PERSENT_FULL)
@@ -21,8 +19,6 @@ export struct BAMinePage {
               }
             } else {
               ForEach(item.items, (subItem: BAMineViewItem, itemIndex?: number) => {
-
-
                 ListItem() {
                   // if (index != undefined && itemIndex != undefined) {
                   //   Text("第" + (index + 1) + "个分区，" + "第" + (itemIndex + 1) + "行")
@@ -35,13 +31,25 @@ export struct BAMinePage {
                     .width(BACommonConstants.PERSENT_FULL)
                     .height(56)
                 }
+
               })
             }
           }
+          .divider({
+            strokeWidth: 0.5,
+            color: $r('app.color.list_divider'),
+            startMargin: 60,
+            endMargin: 0
+          }) // 每行之间的分界线
         })
       }
       .width(BACommonConstants.PERSENT_FULL)
+      .height(BACommonConstants.PERSENT_FULL)
+      .listDirection(Axis.Vertical) // 排列方向
+      .layoutWeight(1) // 自适应占满剩余空间
+      .edgeEffect(EdgeEffect.Spring)
     }
+    .scrollable(ScrollDirection.Vertical)
     .width(BACommonConstants.PERSENT_FULL)
     .height(BACommonConstants.PERSENT_FULL)
     .backgroundColor($r('app.color.list_background'))
@@ -57,20 +65,19 @@ struct BAGroupItem {
   build() {
     Row() {
       Row() {
-        Image(this.image)
-          // .backgroundColor(Color.Orange)
-          .width(28)
-          .height(28)
+        Image(this.image)// .backgroundColor(Color.Orange)
+          .width(24)
+          .height(24)
           .margin({ left: 20 })
 
         Text(this.title)
-          .margin({ left: 6 })
+          .margin({ left: 12 })
       }
 
       if (this.isShowRightArrow) {
         Image($r('app.media.icon_arrow_right'))
-          .width(20)
-          .height(20)
+          .width(BACommonConstants.IMAGE_WIDTH_RIGHTARROW)
+          .height(BACommonConstants.IMAGE_WIDTH_RIGHTARROW)
           .margin({ right: 16 })
       }
     }
@@ -123,5 +130,19 @@ struct BATopUserView {
     .backgroundColor(Color.White)
     .width(BACommonConstants.PERSENT_FULL)
     .height(BACommonConstants.PERSENT_FULL)
+  }
+}
+
+class DividerTmp {
+  strokeWidth: Length = 1
+  startMargin: Length = 60
+  endMargin: Length = 10
+  color: ResourceColor = '#ffe9f0f0'
+
+  constructor(strokeWidth: Length, startMargin: Length, endMargin: Length, color: ResourceColor) {
+    this.strokeWidth = strokeWidth
+    this.startMargin = startMargin
+    this.endMargin = endMargin
+    this.color = color
   }
 }

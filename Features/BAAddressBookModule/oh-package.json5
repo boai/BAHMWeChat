@@ -1,11 +1,9 @@
 {
-  "name": "@ohos/baminemodule",
+  "name": "@ohos/baaddressbookmodule",
   "version": "1.0.0",
   "description": "Please describe the basic information.",
   "main": "Index.ets",
   "author": "boai",
   "license": "Apache-2.0",
-  "dependencies": {
-    "@ohos/bacommonmodule": "file:../../Features/BACommonModule"
-  }
+  "dependencies": {}
 }

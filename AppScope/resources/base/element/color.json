@@ -11,6 +11,14 @@
     {
       "name": "list_background",
       "value": "#F9F9F9"
+    },
+    {
+      "name": "list_divider",
+      "value": "#10C0C4CC"
+    },
+    {
+      "name": "red1",
+      "value": "#F1A2F8"
     }
   ]
 }
