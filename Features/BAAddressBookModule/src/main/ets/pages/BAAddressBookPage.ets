@@ -80,14 +80,18 @@ struct BAAddressBookNavi {
 
 @Component
 struct BAAddressBookList {
-  @Builder
-  itemHead(text: string) {
+  private indexValues: string[] = ['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
+    'H', 'I', 'J', 'K', 'L', 'M', 'N',
+    'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+    'V', 'W', 'X', 'Y', 'Z']
+
+  @Builder itemHead(text: string) {
     Row() {
       Text(text)
         .fontSize(16)
         .margin({ left: 16 })
     }
-    .backgroundColor($r('app.color.list_background'))
+    // .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
     .height(40)
   }
@@ -98,7 +102,7 @@ struct BAAddressBookList {
   }
 
   build() {
-    Column() {
+    Stack({alignContent: Alignment.End}) {
       List({ space: 0 }) {
         ForEach(BAAddressBookViewModel.datas, (sectionModel: BAAddressBookModel, section?: number) => {
           ListItemGroup({
@@ -112,14 +116,56 @@ struct BAAddressBookList {
           }
           .divider({
             strokeWidth: 1,
-            color: ($r('app.color.list_divider'))
+            // color: ($r('app.color.list_divider'))
           })
         })
       }
       .layoutWeight(1)
       .listDirection(Axis.Vertical)
+
+      AlphabetIndexer({arrayValue: this.indexValues, selected: 0})
+        .align(Alignment.End)
+        .selectedColor(0xFFFFFF) // 选中项文本颜色
+        .popupColor(0xFFFAF0) // 弹出框文本颜色
+        .selectedBackgroundColor(0xCCCCCC) // 选中项背景颜色
+        .popupBackground(0xD2B48C) // 弹出框背景颜色
+        .usingPopup(true) // 是否显示弹出框
+        .selectedFont({ size: 16, weight: FontWeight.Bolder }) // 选中项字体样式
+        .popupFont({ size: 30, weight: FontWeight.Bolder }) // 弹出框内容的字体样式
+        .itemSize(28) // 每一项的尺寸大小
+        .alignStyle(IndexerAlign.Left) // 弹出框在索引条右侧弹出
+        .popupItemBorderRadius(24) // 设置提示弹窗索引项背板圆角半径
+        .itemBorderRadius(14) // 设置索引项背板圆角半径
+        .popupBackgroundBlurStyle(BlurStyle.NONE) // 设置提示弹窗的背景模糊材质
+        .popupTitleBackground(0xCCCCCC) // 设置提示弹窗首个索引项背板颜色
+        .popupSelectedColor(0x00FF00)
+        .popupUnselectedColor(0x0000FF)
+        .popupItemFont({ size: 30, style: FontStyle.Normal })
+        .popupItemBackgroundColor(0xCCCCCC)
+        .onSelect((index: number) => {
+          console.info(this.indexValues[index] + ' Selected!')
+        })
+        // .onRequestPopupData((index: number) => {
+        //   if (this.indexValues[index] == 'A') {
+        //     return this.arrayA // 当选中A时，弹出框里面的提示文本列表显示A对应的列表arrayA，选中B、C、L时也同样
+        //   } else if (this.indexValues[index] == 'B') {
+        //     return this.arrayB
+        //   } else if (this.indexValues[index] == 'C') {
+        //     return this.arrayC
+        //   } else if (this.indexValues[index] == 'L') {
+        //     return this.arrayL
+        //   } else {
+        //     return [] // 选中其余子母项时，提示文本列表为空
+        //   }
+        // })
+        .onPopupSelect((index: number) => {
+          console.info('onPopupSelected:' + index)
+        })
+
+
+
     }
-    .backgroundColor($r('app.color.list_background'))
+    // .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
     .height(BACommonConstants.PERCENT_FULL)
   }

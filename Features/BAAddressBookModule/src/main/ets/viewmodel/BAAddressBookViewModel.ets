@@ -76,6 +76,38 @@ export class BAAddressBookViewModel {
           desc: "主动加我的..."
         }
       ]
+    },
+    {
+      type: BAAddressBookSectionType.starFriend,
+      sectionTitle: 'A',
+      items: [
+        {
+          icon: $r('app.media.icon_jujingyi'),
+          name: "阿猫",
+          desc: ""
+        },
+        {
+          icon: $r('app.media.icon_liuyifei'),
+          name: "阿狗",
+          desc: "汪汪汪..."
+        }
+      ]
+    },
+    {
+      type: BAAddressBookSectionType.starFriend,
+      sectionTitle: 'B',
+      items: [
+        {
+          icon: $r('app.media.icon_jujingyi'),
+          name: "博爱",
+          desc: ""
+        },
+        {
+          icon: $r('app.media.icon_liuyifei'),
+          name: "柏林",
+          desc: ""
+        }
+      ]
     }
   ]
 }
