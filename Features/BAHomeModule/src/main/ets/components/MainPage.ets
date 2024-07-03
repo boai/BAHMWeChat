@@ -1,6 +1,6 @@
 @Component
 export struct MainPage {
-  @State message: string = 'Hello World';
+  @State message: string = '功能正在开发，请切换其他页面';
 
   build() {
     Row() {

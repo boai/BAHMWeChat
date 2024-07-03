@@ -10,7 +10,7 @@ import { BAMineIndex } from './BAMineIndex'
 @Component
 export struct BATabbarIndex {
 
-  @State currentPageIndex: number = 3
+  @State currentPageIndex: number = 2
   @State tabData: Array<BATabbarModel> = BATabbarViewModel.getTabbarData()
 
   @Builder
@@ -26,8 +26,8 @@ export struct BATabbarIndex {
         .opacity(this.currentPageIndex === index ? 1 : 0.7)
     }
     .justifyContent(FlexAlign.Center)
-    .width(BACommonConstants.PERSENT_FULL)
-    .height(BACommonConstants.PERSENT_FULL)
+    .width(BACommonConstants.PERCENT_FULL)
+    .height(BACommonConstants.PERCENT_FULL)
   }
 
   build() {
@@ -53,7 +53,7 @@ export struct BATabbarIndex {
         this.currentPageIndex = index
       })
     }
-    .width(BACommonConstants.PERSENT_FULL)
-    .height(BACommonConstants.PERSENT_FULL)
+    .width(BACommonConstants.PERCENT_FULL)
+    .height(BACommonConstants.PERCENT_FULL)
   }
 }

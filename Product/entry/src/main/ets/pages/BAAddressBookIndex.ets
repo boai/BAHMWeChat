@@ -1,9 +1,11 @@
+import { BAAddressBookPage } from '@ohos/baaddressbookmodule'
+
 @Entry
 @Component
 export struct BAAddressBookIndex {
   build() {
     Column() {
-      Text("通讯录")
+      BAAddressBookPage()
     }
   }
 }

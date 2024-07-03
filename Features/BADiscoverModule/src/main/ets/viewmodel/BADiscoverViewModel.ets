@@ -12,7 +12,7 @@ export class BADiscoverViewModel {
     [
       {
         itemType: BADiscoverItemType.pyq,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_pyq'),
         title: '朋友圈',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -23,7 +23,7 @@ export class BADiscoverViewModel {
     [
       {
         itemType: BADiscoverItemType.video,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_video'),
         title: '视频号',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -32,7 +32,7 @@ export class BADiscoverViewModel {
       },
       {
         itemType: BADiscoverItemType.live,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_live'),
         title: '直播',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -43,7 +43,7 @@ export class BADiscoverViewModel {
     [
       {
         itemType: BADiscoverItemType.default,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_scan'),
         title: '扫一扫',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -52,7 +52,7 @@ export class BADiscoverViewModel {
       },
       {
         itemType: BADiscoverItemType.default,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_music'),
         title: '听一听',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -63,7 +63,7 @@ export class BADiscoverViewModel {
     [
       {
         itemType: BADiscoverItemType.look,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_kyk'),
         title: '看一看',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -72,7 +72,7 @@ export class BADiscoverViewModel {
       },
       {
         itemType: BADiscoverItemType.default,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_sys'),
         title: '搜一搜',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -83,7 +83,7 @@ export class BADiscoverViewModel {
     [
       {
         itemType: BADiscoverItemType.default,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_fujin'),
         title: '附近',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -94,7 +94,7 @@ export class BADiscoverViewModel {
     [
       {
         itemType: BADiscoverItemType.default,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_mall'),
         title: '购物',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -103,7 +103,7 @@ export class BADiscoverViewModel {
       },
       {
         itemType: BADiscoverItemType.game,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_game'),
         title: '游戏',
         isShowRightArrow: true,
         rightIcon: undefined,
@@ -114,26 +114,8 @@ export class BADiscoverViewModel {
     [
       {
         itemType: BADiscoverItemType.default,
-        icon: $r('app.media.icon_wx_collect'),
+        icon: $r('app.media.icon_program'),
         title: '小程序',
-        isShowRightArrow: true,
-        rightIcon: undefined,
-        rightText: '',
-        routerUrl: ''
-      },
-      {
-        itemType: BADiscoverItemType.default,
-        icon: $r('app.media.icon_wx_collect'),
-        title: '小程序2',
-        isShowRightArrow: true,
-        rightIcon: undefined,
-        rightText: '',
-        routerUrl: ''
-      },
-      {
-        itemType: BADiscoverItemType.default,
-        icon: $r('app.media.icon_wx_collect'),
-        title: '小程序3',
         isShowRightArrow: true,
         rightIcon: undefined,
         rightText: '',

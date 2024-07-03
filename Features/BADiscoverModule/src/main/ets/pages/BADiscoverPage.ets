@@ -1,3 +1,4 @@
+import { XTEasyHUD } from '@jxt/xt_hud'
 import { BACommonConstants } from '@ohos/bacommonmodule'
 import { BADiscoverListItemView } from '../view/BADiscoverListItemView'
 import { BADiscoverViewItem, BADiscoverViewModel } from '../viewmodel/BADiscoverViewModel'
@@ -18,22 +19,22 @@ export struct BADiscoverPage {
   build() {
     Column() {
       BADiscoverNavi()
-        .width(BACommonConstants.PERSENT_FULL)
+        .width(BACommonConstants.PERCENT_FULL)
         .height(BACommonConstants.NAVIGATIONBAR_HEIGHT)
 
       BADiscoverList()
-        .width(BACommonConstants.PERSENT_FULL)
-        .height("92%")
+        .width(BACommonConstants.PERCENT_FULL)
+        .height(BACommonConstants.PERCENT_EXCEPT_TABBARANDNAVI)
 
       // Column()
       //   // .backgroundColor(Color.Red)
       //   // .backgroundColor($r('app.color.list_background'))
-      //   .width(BACommonConstants.PERSENT_FULL)
+      //   .width(BACommonConstants.PERCENT_FULL)
       //   .height(10)
     }
     .backgroundColor($r('app.color.list_background'))
-    .width(BACommonConstants.PERSENT_FULL)
-    .height(BACommonConstants.PERSENT_FULL)
+    .width(BACommonConstants.PERCENT_FULL)
+    .height(BACommonConstants.PERCENT_FULL)
     .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])
   }
 }
@@ -48,15 +49,15 @@ struct BADiscoverNavi {
 
       Column() {
         Text('发现')
-          .fontSize(20)
+          .fontSize(24)
           .fontWeight(FontWeight.Medium)
           .textAlign(TextAlign.Center)// .backgroundColor(Color.Yellow)
           .alignSelf(ItemAlign.Center)
-          .width(BACommonConstants.PERSENT_FULL)
-          .height(BACommonConstants.PERSENT_FULL)
+          .width(BACommonConstants.PERCENT_FULL)
+          .height(BACommonConstants.PERCENT_FULL)
       }
       .width('60%')
-      .height(BACommonConstants.PERSENT_FULL)
+      .height(BACommonConstants.PERCENT_FULL)
 
       Row() {
         // Button()
@@ -69,8 +70,8 @@ struct BADiscoverNavi {
       .justifyContent(FlexAlign.End)
     }
     .backgroundColor(Color.White)
-    .width(BACommonConstants.PERSENT_FULL)
-    .height(BACommonConstants.PERSENT_FULL)
+    .width(BACommonConstants.PERCENT_FULL)
+    .height(BACommonConstants.PERCENT_FULL)
   }
 }
 
@@ -84,14 +85,17 @@ struct BADiscoverList {
             ForEach(items, (item: BADiscoverViewItem, row?: number) => {
               ListItem() {
                 BADiscoverListItemView({ item: item })
-                  .width(BACommonConstants.PERSENT_FULL)
+                  .width(BACommonConstants.PERCENT_FULL)
                   .height(56)
+                  .onClick(()=>{
+                    XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+                  })
               }
             })
           }
           .divider({
-            strokeWidth: 0.5,
-            color: $r('app.color.list_divider'),
+            strokeWidth: 1,
+            // color: $r('app.color.list_divider'),
             startMargin: 60,
             endMargin: 0
           }) // 每行之间的分界线
@@ -100,9 +104,9 @@ struct BADiscoverList {
       .layoutWeight(1)
       .listDirection(Axis.Vertical) // 排列方向
     }
-    .backgroundColor($r('app.color.list_background'))
-    .width(BACommonConstants.PERSENT_FULL)
-    // .height(BACommonConstants.PERSENT_FULL)
+    // .backgroundColor($r('app.color.list_background'))
+    .width(BACommonConstants.PERCENT_FULL)
+    // .height(BACommonConstants.PERCENT_FULL)
   }
 }
 

@@ -5,5 +5,8 @@
   "main": "Index.ets",
   "author": "boai",
   "license": "Apache-2.0",
-  "dependencies": {}
+  "dependencies": {
+    "@ohos/bacommonmodule": "file:../../Features/BACommonModule",
+    "@jxt/xt_hud": "^1.1.1"
+  }
 }
