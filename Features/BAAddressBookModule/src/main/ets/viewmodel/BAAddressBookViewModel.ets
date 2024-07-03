@@ -15,32 +15,32 @@ export class BAAddressBookViewModel {
       items: [
         {
           icon: $r('app.media.icon_friend_new'),
-          content : "新的朋友",
+          name: "新的朋友",
           desc: ""
         },
         {
           icon: $r('app.media.icon_friend_onlyChat'),
-          content : "仅聊天的朋友",
+          name: "仅聊天的朋友",
           desc: ""
         },
         {
           icon: $r('app.media.icon_chat_group'),
-          content : "群聊",
+          name: "群聊",
           desc: ""
         },
         {
           icon: $r('app.media.icon_tag'),
-          content : "标签",
+          name: "标签",
           desc: ""
         },
         {
           icon: $r('app.media.icon_officialAccounts'),
-          content : "公众号",
+          name: "公众号",
           desc: ""
         },
         {
           icon: $r('app.media.icon_companywx'),
-          content : "企业微信联系人",
+          name: "企业微信联系人",
           desc: ""
         }
       ]
@@ -50,13 +50,13 @@ export class BAAddressBookViewModel {
       sectionTitle: '我的企业',
       items: [
         {
-          icon: $r('app.media.icon_chat_group'),
-          content : "滴滴打车",
+          icon: $r('app.media.icon_didi_chuxing'),
+          name: "滴滴打车",
           desc: ""
         },
         {
-          icon: $r('app.media.icon_chat_group'),
-          content : "滴滴代驾",
+          icon: $r('app.media.icon_didi_waimai'),
+          name: "滴滴代驾",
           desc: ""
         }
       ]
@@ -66,13 +66,13 @@ export class BAAddressBookViewModel {
       sectionTitle: '※ 星标朋友',
       items: [
         {
-          icon: $r('app.media.icon_chat_group'),
-          content : "鞠婧祎",
+          icon: $r('app.media.icon_jujingyi'),
+          name: "鞠婧祎",
           desc: "我们做朋友吧！"
         },
         {
-          icon: $r('app.media.icon_chat_group'),
-          content : "刘亦菲",
+          icon: $r('app.media.icon_liuyifei'),
+          name: "刘亦菲",
           desc: "主动加我的..."
         }
       ]
@@ -88,6 +88,6 @@ export interface BAAddressBookModel {
 
 export interface BAAddressBookItem {
   icon?: string | Resource
-  content: string
+  name: string
   desc?: string
 }

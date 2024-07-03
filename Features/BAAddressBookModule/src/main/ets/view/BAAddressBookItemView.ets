@@ -17,12 +17,12 @@ export struct BAAddressBookItemView {
         .borderRadius(6)
 
       if (this.itemModel.desc === undefined || this.itemModel.desc?.length === 0) {
-        Text(this.itemModel.content)
+        Text(this.itemModel.name)
           .fontSize(16)
           .margin({ left: 16 })
       } else {
         Column() {
-          Text(this.itemModel.content)
+          Text(this.itemModel.name)
             .fontSize(16)
             .margin({ left: 16 })
 

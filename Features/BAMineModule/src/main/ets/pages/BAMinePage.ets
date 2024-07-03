@@ -45,7 +45,8 @@ export struct BAMinePage {
         })
       }
       .width(BACommonConstants.PERCENT_FULL)
-      .height(BACommonConstants.PERCENT_EXCEPT_TABBAR)
+      // .height(BACommonConstants.PERCENT_EXCEPT_TABBAR)
+      .height('calc(100% - 49vp)')
       .listDirection(Axis.Vertical) // 排列方向
       .layoutWeight(1) // 自适应占满剩余空间
       .edgeEffect(EdgeEffect.Spring)

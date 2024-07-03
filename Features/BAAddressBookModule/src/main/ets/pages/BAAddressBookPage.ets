@@ -1,4 +1,5 @@
-import { BACommonConstants } from '@ohos/bacommonmodule';
+import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD';
+import { BACommonConstants, BALogger, BANavigationBarTitle } from '@ohos/bacommonmodule';
 import { BAAddressBookItemView } from '../view/BAAddressBookItemView';
 import {
   BAAddressBookItem,
@@ -10,15 +11,33 @@ import {
 @Entry
 @Component
 export struct BAAddressBookPage {
+  @State searchText: string = ''
+  // @State enterTypes: Array<EnterKeyType> = [EnterKeyType.Go, EnterKeyType.Search, EnterKeyType.Send, EnterKeyType.Done, EnterKeyType.Next, EnterKeyType.PREVIOUS, EnterKeyType.NEW_LINE]
+  controller: SearchController = new SearchController()
+
   build() {
     Column() {
       BAAddressBookNavi()
         .width(BACommonConstants.PERCENT_FULL)
         .height(BACommonConstants.NAVIGATIONBAR_HEIGHT)
 
+      Search({ placeholder: '搜索', value: this.searchText, controller: this.controller })
+        .width('94%')
+        .height(44)
+        .backgroundColor('#F5F5F5')
+        .padding({ left: 8, right: 8 })
+        .enterKeyType(EnterKeyType.Go)
+        .onChange((value: string) => {
+          this.searchText = value
+        })
+        .onSubmit((value: string) => {
+          BALogger.info("trigger search onsubmit" + value, 'BAAddressBookPage')
+        })
+
       BAAddressBookList()
         .width(BACommonConstants.PERCENT_FULL)
-        .height(BACommonConstants.PERCENT_EXCEPT_TABBARANDNAVI)
+        .height('calc(100% - 64vp - 44vp - 49vp)')
+      // .height('83%')
     }
     .width(BACommonConstants.PERCENT_FULL)
     .height(BACommonConstants.PERCENT_FULL)
@@ -32,28 +51,26 @@ struct BAAddressBookNavi {
       Column() {
       }
       .width("20%")
+      .layoutWeight(2)
 
-      Column() {
-        Text('通讯录')
-          .fontSize(24)
-          .fontWeight(FontWeight.Medium)
-          .textAlign(TextAlign.Center)// .backgroundColor(Color.Yellow)
-          .alignSelf(ItemAlign.Center)
-          .width(BACommonConstants.PERCENT_FULL)
-          .height(BACommonConstants.PERCENT_FULL)
-      }
-      .width('60%')
-      .height(BACommonConstants.PERCENT_FULL)
+      BANavigationBarTitle({ title: '发现' })
+        .width('60%')
+        .height(BACommonConstants.PERCENT_FULL)
+        .layoutWeight(1)
 
       Row() {
-        // Button()
-        //   .backgroundColor(Color.Red)
-        //   .width(44)
-        //   .height(44)
-        //   .margin({right: 20})
+        Image($r('app.media.icon_friend_add'))
+          .width(28)
+          .height(28)
+          .objectFit(ImageFit.Auto)
+          .margin({ right: 20 })
+          .onClick(() => {
+            XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+          })
       }
       .width('20%')
       .justifyContent(FlexAlign.End)
+      .layoutWeight(2)
     }
     .backgroundColor(Color.White)
     .width(BACommonConstants.PERCENT_FULL)

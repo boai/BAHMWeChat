@@ -1,5 +1,5 @@
 import { XTEasyHUD } from '@jxt/xt_hud'
-import { BACommonConstants } from '@ohos/bacommonmodule'
+import { BACommonConstants, BANavigationBarTitle } from '@ohos/bacommonmodule'
 import { BADiscoverListItemView } from '../view/BADiscoverListItemView'
 import { BADiscoverViewItem, BADiscoverViewModel } from '../viewmodel/BADiscoverViewModel'
 
@@ -24,7 +24,7 @@ export struct BADiscoverPage {
 
       BADiscoverList()
         .width(BACommonConstants.PERCENT_FULL)
-        .height(BACommonConstants.PERCENT_EXCEPT_TABBARANDNAVI)
+        .height('calc(100% - 64vp)')
 
       // Column()
       //   // .backgroundColor(Color.Red)
@@ -46,18 +46,12 @@ struct BADiscoverNavi {
       Column() {
       }
       .width("20%")
+      .layoutWeight(2)
 
-      Column() {
-        Text('发现')
-          .fontSize(24)
-          .fontWeight(FontWeight.Medium)
-          .textAlign(TextAlign.Center)// .backgroundColor(Color.Yellow)
-          .alignSelf(ItemAlign.Center)
-          .width(BACommonConstants.PERCENT_FULL)
-          .height(BACommonConstants.PERCENT_FULL)
-      }
-      .width('60%')
-      .height(BACommonConstants.PERCENT_FULL)
+      BANavigationBarTitle({ title: '发现' })
+        .width('60%')
+        .height(BACommonConstants.PERCENT_FULL)
+        .layoutWeight(1)
 
       Row() {
         // Button()
@@ -68,6 +62,7 @@ struct BADiscoverNavi {
       }
       .width('20%')
       .justifyContent(FlexAlign.End)
+      .layoutWeight(2)
     }
     .backgroundColor(Color.White)
     .width(BACommonConstants.PERCENT_FULL)
@@ -87,7 +82,7 @@ struct BADiscoverList {
                 BADiscoverListItemView({ item: item })
                   .width(BACommonConstants.PERCENT_FULL)
                   .height(56)
-                  .onClick(()=>{
+                  .onClick(() => {
                     XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
                   })
               }
@@ -106,6 +101,7 @@ struct BADiscoverList {
     }
     // .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
+
     // .height(BACommonConstants.PERCENT_FULL)
   }
 }

@@ -10,8 +10,13 @@ export class BACommonConstants {
 
   static readonly IMAGE_WIDTH_RIGHTARROW = 20
 
+  //字体
+  static readonly FONT_SIZE_NAVI_TITLE = 20
+
   //提示语
   static readonly TIP_FUNCTIONNOTDEVELOP = '此功能正在努力开发中...'
+
+
 
 }
 
