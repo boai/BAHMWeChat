@@ -1,3 +1,9 @@
+/**
+ * @Class BAArrayUtil.ets
+ * @Author boai
+ * @DateTime 2024/7/4 09:37:54
+ */
+
 import { BACommonConstants } from '../constants/BACommonConstants'
 import { Image } from '@kit.ArkGraphics3D'
 

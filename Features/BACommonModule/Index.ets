@@ -1,3 +1,5 @@
 export { BALogger } from './src/main/ets/util/BALogger'
 export { BACommonConstants } from './src/main/ets/constants/BACommonConstants'
 export { BANavigationBarTitle } from './src/main/ets/view/BANavigationBar'
+export { BACommonUtil } from './src/main/ets/util/BACommonUtil'
+export { BAStringUtil } from './src/main/ets/util/BAStringUtil'

@@ -1,4 +1,4 @@
-import { BACommonConstants } from '@ohos/bacommonmodule'
+import { BACommonConstants, BACommonUtil, BAStringUtil } from '@ohos/bacommonmodule'
 import { BAAddressBookItem, BAAddressBookModel } from '../viewmodel/BAAddressBookViewModel'
 
 @Entry
@@ -16,7 +16,7 @@ export struct BAAddressBookItemView {
         .objectFit(ImageFit.Auto)
         .borderRadius(6)
 
-      if (this.itemModel.desc === undefined || this.itemModel.desc?.length === 0) {
+      if (BAStringUtil.isStringEmpty(this.itemModel.desc)) {
         Text(this.itemModel.name)
           .fontSize(16)
           .margin({ left: 16 })

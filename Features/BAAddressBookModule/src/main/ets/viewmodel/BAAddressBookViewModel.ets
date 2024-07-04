@@ -1,3 +1,5 @@
+import { BAStringUtil } from '@ohos/bacommonmodule'
+import { ArrayList, JSON } from '@kit.ArkTS'
 
 export enum BAAddressBookSectionType {
   default,
@@ -11,7 +13,7 @@ export class BAAddressBookViewModel {
   static datas: BAAddressBookModel[] = [
     {
       type: BAAddressBookSectionType.top,
-      sectionTitle: undefined,
+      sectionTitle: '',
       items: [
         {
           icon: $r('app.media.icon_friend_new'),
@@ -78,7 +80,7 @@ export class BAAddressBookViewModel {
       ]
     },
     {
-      type: BAAddressBookSectionType.starFriend,
+      type: BAAddressBookSectionType.default,
       sectionTitle: 'A',
       items: [
         {
@@ -94,7 +96,7 @@ export class BAAddressBookViewModel {
       ]
     },
     {
-      type: BAAddressBookSectionType.starFriend,
+      type: BAAddressBookSectionType.default,
       sectionTitle: 'B',
       items: [
         {
@@ -108,13 +110,50 @@ export class BAAddressBookViewModel {
           desc: ""
         }
       ]
+    },
+    {
+      type: BAAddressBookSectionType.default,
+      sectionTitle: 'F',
+      items: [
+        {
+          icon: $r('app.media.icon_jujingyi'),
+          name: "丰田",
+          desc: ""
+        },
+        {
+          icon: $r('app.media.icon_liuyifei'),
+          name: "法拉利",
+          desc: ""
+        },
+        {
+          icon: $r('app.media.icon_liuyifei'),
+          name: "福特",
+          desc: ""
+        }
+      ]
     }
   ]
+
+  static getIndexDatas(): Array<string> {
+    let arrayList: Array<string> = new Array()
+    arrayList.push('🔍')
+    arrayList.push('※')
+
+    let datas = BAAddressBookViewModel.datas
+    for (let i = 0; i < datas.length; i++) {
+      let sectionModel = datas[i]
+      if (sectionModel.type == BAAddressBookSectionType.default &&
+        !BAStringUtil.isStringEmpty(sectionModel.sectionTitle)) {
+        arrayList.push(sectionModel.sectionTitle)
+      }
+    }
+    return arrayList
+  }
 }
 
 export interface BAAddressBookModel {
   type: BAAddressBookSectionType
-  sectionTitle: string | undefined
+  sectionTitle: string
   items?: BAAddressBookItem[] | undefined
 }
 
