@@ -33,25 +33,22 @@ export struct LYPyqItemView {
             .textOverflow({ overflow: TextOverflow.Clip })
         }
         .alignItems(HorizontalAlign.Start)
-        .height('85%')
 
         Row() {
           Text(this.itemModel.time)
         }
         .width(BACommonConstants.PERCENT_FULL)
-        .height('15%')
-        .padding({bottom: 10})
+        .margin({top: 20})
       }
       .width('calc(100% - 44vp - 16vp - 10vp)')
       .margin({ left: 8 })
       .alignItems(HorizontalAlign.Start)
-
-
       // .backgroundColor(Color.Yellow)
     }
     .backgroundColor(Color.White)
     .width(BACommonConstants.PERCENT_FULL)
-    .height(BACommonConstants.PERCENT_FULL)
+    // .height(BACommonConstants.PERCENT_FULL)
     .alignItems(VerticalAlign.Top)
+    .margin({top: 20, bottom: 20})
   }
 }
