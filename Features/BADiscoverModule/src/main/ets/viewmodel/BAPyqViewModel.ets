@@ -16,14 +16,27 @@ export class BAPyqViewModel {
       type: BAPyqItemType.default,
       contentId: 100001,
       userIcon: $r('app.media.icon_jujingyi'),
-      userName: '鞠婧祎',
+      userName: '杨幂',
       content: "超聚光伸缩摄像头，实力出镜，开启专属仪式感；\n1 英寸大底传感器，超大进光量，捕捉瞬息精彩；\n超聚光微距长⁠焦，F2.1 超大光圈，35x 超级微距⁠1，探索未见之美。",
       images: undefined,
       video: undefined,
       time: '2024-7-3 9:43:39',
       urlPath: undefined,
       contentSource: undefined,
-      comments: []
+      comments: [
+        {
+          contentId: 100001,
+          commentId: 200001,
+          userName: '博爱',
+          content: '沙发🛋'
+        },
+        {
+          contentId: 100001,
+          commentId: 200002,
+          userName: '一博',
+          content: '创新旋动伸缩镜头结构，每次相机开启，专业机械音随之响起，给你专属仪式感。'
+        }
+      ]
     },
     {
       type: BAPyqItemType.default,
@@ -71,7 +84,7 @@ export interface BAPyqItemModel {
 export interface BAPyqItemCommentModel {
   contentId: number
   commentId: number
-  userName: number
+  userName: string | undefined
   content: string | undefined
 }
 

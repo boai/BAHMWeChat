@@ -7,7 +7,6 @@ import { BACommonConstants, BARouterPath } from '@ohos/bacommonmodule'
 import { BAPyqHeaderView } from '../view/BAPyqHeaderView'
 import { BAPyqItemView } from '../view/BAPyqItemView'
 import { BAPyqItemModel, BAPyqViewModel } from '../viewmodel/BAPyqViewModel'
-import { router } from '@kit.ArkUI'
 import { BADiscoverRouterPath } from '../router/BADiscoverRouterPath'
 
 
@@ -19,15 +18,14 @@ export struct BAPyqPage {
 
   @Builder
   pyqHead() {
-    BAPyqHeaderView()// .backgroundColor($r('app.color.list_background'))
+    BAPyqHeaderView()
       .width(BACommonConstants.PERCENT_FULL)
       .height('40%')
+      .backgroundColor($r('app.color.list_background'))
   }
 
   build() {
     Column() {
-
-
       List() {
         ListItemGroup({ header: this.pyqHead() }) {
           // ForEach(BAPyqViewModel.getDatas, (itemModel: BAPyqItemModel, index?: number) => {
@@ -43,7 +41,7 @@ export struct BAPyqPage {
         }
         .divider({
           strokeWidth: 1,
-          // color: $r('app.color.list_divider'),
+          color: $r('app.color.list_divider'),
           startMargin: 0,
           endMargin: 0
         }) // 每行之间的分界线

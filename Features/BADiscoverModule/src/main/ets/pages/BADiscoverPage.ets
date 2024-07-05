@@ -2,7 +2,6 @@ import { XTEasyHUD } from '@jxt/xt_hud'
 import { BACommonConstants, BANavigationBarTitle, BARouter, BARouterPath } from '@ohos/bacommonmodule'
 import { BADiscoverListItemView } from '../view/BADiscoverListItemView'
 import { BADiscoverItemType, BADiscoverViewItem, BADiscoverViewModel } from '../viewmodel/BADiscoverViewModel'
-import router from '@ohos.router'
 import { BADiscoverRouterPath } from '../router/BADiscoverRouterPath'
 
 @Entry
