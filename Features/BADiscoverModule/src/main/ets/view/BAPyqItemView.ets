@@ -84,8 +84,10 @@ struct BAPyqCommentItemView {
     Row() {
       Column() {
         Text(this.commentModel.userName)
+          .maxLines(1)
           .textAlign(TextAlign.Start)
           .align(Alignment.TopStart)
+
       }
       // .align(Alignment.Start)
       // .flexShrink(1)
