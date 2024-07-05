@@ -1,5 +1,5 @@
 /**
- * @Class LYPyqHeaderView.ets
+ * @Class BAPyqHeaderView.ets
  * @Author boai
  * @DateTime 2024/7/4 15:08:13
  */
@@ -7,7 +7,7 @@ import { BACommonConstants } from '@ohos/bacommonmodule'
 
 @Entry
 @Component
-export struct LYPyqHeaderView {
+export struct BAPyqHeaderView {
   //code
 
   build() {

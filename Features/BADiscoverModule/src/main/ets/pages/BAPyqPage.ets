@@ -4,9 +4,9 @@
  * @DateTime 2024/7/4 13:43:18
  */
 import { BACommonConstants, BARouterPath } from '@ohos/bacommonmodule'
-import { LYPyqHeaderView } from '../view/LYPyqHeaderView'
-import { LYPyqItemView } from '../view/LYPyqItemView'
-import { LYPyqItemModel, LYPyqViewModel } from '../viewmodel/LYPyqViewModel'
+import { BAPyqHeaderView } from '../view/BAPyqHeaderView'
+import { BAPyqItemView } from '../view/BAPyqItemView'
+import { BAPyqItemModel, BAPyqViewModel } from '../viewmodel/BAPyqViewModel'
 import { router } from '@kit.ArkUI'
 import { BADiscoverRouterPath } from '../router/BADiscoverRouterPath'
 
@@ -15,23 +15,31 @@ import { BADiscoverRouterPath } from '../router/BADiscoverRouterPath'
 @Component
 export struct BAPyqPage {
   //code
+  @State simpleList: Array<BAPyqItemModel> = BAPyqViewModel.getDatas;
 
   @Builder
   pyqHead() {
-    LYPyqHeaderView()// .backgroundColor($r('app.color.list_background'))
+    BAPyqHeaderView()// .backgroundColor($r('app.color.list_background'))
       .width(BACommonConstants.PERCENT_FULL)
       .height('40%')
   }
 
   build() {
     Column() {
+
+
       List() {
         ListItemGroup({ header: this.pyqHead() }) {
-          ForEach(LYPyqViewModel.getDatas, (itemModel: LYPyqItemModel, index?: number) => {
-            ListItem() {
-              LYPyqItemView({ itemModel: itemModel })
-            }
-          })
+          // ForEach(BAPyqViewModel.getDatas, (itemModel: BAPyqItemModel, index?: number) => {
+          //   ListItem() {
+          //     BAPyqItemView({ itemModel: itemModel })
+          //   }
+          // })
+          Repeat<BAPyqItemModel>(this.simpleList)
+            .each((obj: RepeatItem<BAPyqItemModel>)=>{
+              BAPyqItemView({ itemModel: obj.item })
+            })
+          .key((itemModel: BAPyqItemModel) => itemModel.contentId.toString())
         }
         .divider({
           strokeWidth: 1,
