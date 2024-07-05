@@ -28,7 +28,7 @@ export struct BADiscoverListItemView {
         }
 
         Image('')
-        Image($r('app.media.icon_arrow_right'))
+        // Image($r('app.media.icon_arrow_right'))
           .width(BACommonConstants.IMAGE_WIDTH_RIGHTARROW)
           .height(BACommonConstants.IMAGE_WIDTH_RIGHTARROW)
           .margin({ right: 16 })

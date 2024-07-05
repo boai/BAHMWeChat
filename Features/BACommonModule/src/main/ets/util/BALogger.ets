@@ -11,7 +11,7 @@ export class BALogger {
   static prefix: string
   static format: string = '%{public}s, %{public}s'
 
-  constructor(domain: number = 0xFF00, prefix: string = 'Demo') {
+  constructor(domain: number = 0xFF00, prefix: string = 'BAHMWeChat') {
     BALogger.domain = domain
     BALogger.prefix = prefix
   }

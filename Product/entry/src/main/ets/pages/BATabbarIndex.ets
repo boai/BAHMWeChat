@@ -10,7 +10,7 @@ import { BAMineIndex } from './BAMineIndex'
 @Component
 export struct BATabbarIndex {
 
-  @State currentPageIndex: number = 1
+  @State currentPageIndex: number = 2
   @State tabData: Array<BATabbarModel> = BATabbarViewModel.getTabbarData()
 
   @Builder

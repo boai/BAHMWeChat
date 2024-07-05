@@ -1,0 +1,53 @@
+/**
+ * @Class BARouter.ets
+ * @Author boai
+ * @DateTime 2024/7/4 18:44:37
+ */
+
+import Url from "@ohos.url"; // URL解析
+import { router } from "@kit.ArkUI"; // 路由
+import { BARouterPath } from './BARouterPath';
+import { BALogger } from '../util/BALogger';
+
+// Router管理类
+export class BARouter {
+  // 自定义路由跳转
+  public static openUrl(urlString: string): void {
+    // 如果是自定义hbh地址，解析URI参数和路径
+    const url = Url.URL.parseURL(urlString);
+    const hostname = url.hostname
+    const pathname = url.pathname
+    const params = url.params
+    // Router参数类型为Record<string, string>
+    let newParams: Record<string, string> = {};
+    // 解析 uri参数
+    url.params.forEach((value, key) => {
+      newParams[key] = value;
+    });
+
+    const logInfo = "进入路由跳转：" + urlString
+    BALogger.info(logInfo, 'BARouter')
+
+    if (hostname === BARouterPath.HOST_APP) {
+      //app路由
+      router.pushNamedRoute({
+        name: pathname,
+        params: params,
+      }, router.RouterMode.Standard, (err) => {
+        if (err) {
+          // 如果跳转失败，再跳转到未找到页面
+          // BARouter.pushNotFoundPage();
+          BALogger.error('Invoke pushUrl failed, code is ${err.code}, message is ${err.message}', 'BARouter')
+        }
+      });
+    } else if (hostname == BARouterPath.HOST_H5) {
+      //h5路由
+
+    } else if (hostname == BARouterPath.HOST_MINIPROJECT) {
+      //小程序路由
+
+    } else {
+      BALogger.info("找不到对应路由，请检查路由配置")
+    }
+  }
+}

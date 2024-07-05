@@ -80,13 +80,9 @@ struct BAAddressBookNavi {
 
 @Component
 struct BAAddressBookList {
-  private listScroller:Scroller = new Scroller()
+  private listScroller: Scroller = new Scroller()
   @State selectedIndex: number = 0
-  private indexValues: string[] = BAAddressBookViewModel.getIndexDatas() //['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
-
-  //   'H', 'I', 'J', 'K', 'L', 'M', 'N',
-  //   'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-  //   'V', 'W', 'X', 'Y', 'Z']
+  private indexValues: string[] = BAAddressBookViewModel.getIndexDatas()
 
   @Builder
   itemHead(text: string) {
@@ -113,9 +109,14 @@ struct BAAddressBookList {
             header: this.isShowHeader(sectionModel) ? this.itemHead(sectionModel.sectionTitle) : undefined
           }) {
             ForEach(sectionModel.items, (itemModel: BAAddressBookItem, row?: number) => {
-              BAAddressBookItemView({ itemModel: itemModel })
-                .width(BACommonConstants.PERCENT_FULL)
-                .height(60)
+              ListItem() {
+                BAAddressBookItemView({ itemModel: itemModel })
+                  .width(BACommonConstants.PERCENT_FULL)
+                  .height(60)
+                  .onClick(() => {
+                    XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+                  })
+              }
             })
           }
           .divider({

@@ -1,7 +1,9 @@
 import { XTEasyHUD } from '@jxt/xt_hud'
-import { BACommonConstants, BANavigationBarTitle } from '@ohos/bacommonmodule'
+import { BACommonConstants, BANavigationBarTitle, BARouter, BARouterPath } from '@ohos/bacommonmodule'
 import { BADiscoverListItemView } from '../view/BADiscoverListItemView'
-import { BADiscoverViewItem, BADiscoverViewModel } from '../viewmodel/BADiscoverViewModel'
+import { BADiscoverItemType, BADiscoverViewItem, BADiscoverViewModel } from '../viewmodel/BADiscoverViewModel'
+import router from '@ohos.router'
+import { BADiscoverRouterPath } from '../router/BADiscoverRouterPath'
 
 @Entry
 @Component
@@ -83,14 +85,19 @@ struct BADiscoverList {
                   .width(BACommonConstants.PERCENT_FULL)
                   .height(56)
                   .onClick(() => {
-                    XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+                    if (item.itemType == BADiscoverItemType.pyq) {
+                      // 通过 BARouter 跳转
+                      BARouter.openUrl(BARouterPath.getAppRouterPath(BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ))
+                    } else {
+                      XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+                    }
                   })
               }
             })
           }
           .divider({
             strokeWidth: 1,
-            // color: $r('app.color.list_divider'),
+            color: $r('app.color.list_divider'),
             startMargin: 60,
             endMargin: 0
           }) // 每行之间的分界线
@@ -99,7 +106,7 @@ struct BADiscoverList {
       .layoutWeight(1)
       .listDirection(Axis.Vertical) // 排列方向
     }
-    // .backgroundColor($r('app.color.list_background'))
+    .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
 
     // .height(BACommonConstants.PERCENT_FULL)
