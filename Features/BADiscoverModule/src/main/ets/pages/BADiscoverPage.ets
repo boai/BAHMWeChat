@@ -33,7 +33,7 @@ export struct BADiscoverPage {
       //   .width(BACommonConstants.PERCENT_FULL)
       //   .height(10)
     }
-    .backgroundColor($r('app.color.list_background'))
+    // .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
     .height(BACommonConstants.PERCENT_FULL)
     .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])
@@ -96,7 +96,7 @@ struct BADiscoverList {
           }
           .divider({
             strokeWidth: 1,
-            color: $r('app.color.list_divider'),
+            // color: $r('app.color.list_divider'),
             startMargin: 60,
             endMargin: 0
           }) // 每行之间的分界线
@@ -105,7 +105,7 @@ struct BADiscoverList {
       .layoutWeight(1)
       .listDirection(Axis.Vertical) // 排列方向
     }
-    .backgroundColor($r('app.color.list_background'))
+    // .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
 
     // .height(BACommonConstants.PERCENT_FULL)

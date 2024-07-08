@@ -32,3 +32,5 @@ export class BALogger {
     hilog.error(BALogger.domain, BALogger.prefix, BALogger.format, args)
   }
 }
+
+export default new BALogger(0xFF00, 'BAWechat')

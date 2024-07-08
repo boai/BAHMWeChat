@@ -3,6 +3,7 @@
  * @Author boai
  * @DateTime 2024/7/4 15:52:29
  */
+import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD'
 import { BACommonConstants } from '@ohos/bacommonmodule'
 import { BAPyqItemCommentModel, BAPyqItemModel } from '../viewmodel/BAPyqViewModel'
 
@@ -26,6 +27,9 @@ export struct BAPyqItemView {
             .fontSize(16)
             .fontWeight(FontWeight.Medium)
             .fontColor(Color.Blue)
+            .onClick(() => {
+              XTEasyHUD.showToast('点击了：' + this.itemModel.userName)
+            })
 
           Text(this.itemModel.content)
             .fontSize(14)
@@ -44,7 +48,8 @@ export struct BAPyqItemView {
         .margin({ top: 20 })
 
         if (this.itemModel.comments.length > 0) {
-          BAPyqCommentView({ comments: this.itemModel.comments })// .width(BACommonConstants.PERCENT_FULL)
+          BAPyqCommentView({ comments: this.itemModel.comments })
+            // .width(BACommonConstants.PERCENT_FULL)
             .margin({ top: 12, right: 20 })
         }
       }
@@ -82,21 +87,20 @@ struct BAPyqCommentItemView {
 
   build() {
     Row() {
-      Column() {
-        Text(this.commentModel.userName)
-          .maxLines(1)
-          .textAlign(TextAlign.Start)
-          .align(Alignment.TopStart)
+      Text() {
+        Span(this.commentModel.userName + '：')
+          .fontColor(Color.Blue)
+          .fontSize(16)
+          .fontStyle(FontStyle.Normal)
+          // .decoration({ type: TextDecorationType.Underline, color: Color.Black })
+          .onClick(() => {
+            XTEasyHUD.showToast('点击了：' + this.commentModel.userName)
+          })
 
+        Span(this.commentModel.content)
+          .fontColor(Color.Black).fontSize(14)
+          // .fontStyle(FontStyle.Italic)
       }
-      // .align(Alignment.Start)
-      // .flexShrink(1)
-
-      Column() {
-        Text('：' + this.commentModel.content)
-          .textAlign(TextAlign.Start)
-      }
-      .flexShrink(1)
     }
     .width(BACommonConstants.PERCENT_FULL)
     .borderRadius(8)
@@ -106,5 +110,6 @@ struct BAPyqCommentItemView {
       left: 8,
       right: 8
     })
+    .alignSelf(ItemAlign.Start)
   }
 }
