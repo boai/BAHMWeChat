@@ -59,9 +59,9 @@ export struct BAMinePage {
 
 @Component
 struct BAGroupItem {
-  @BuilderParam image?: Resource | string
-  @BuilderParam title?: string
-  @BuilderParam isShowRightArrow?: boolean
+  @Prop image?: Resource | string
+  @Prop title?: string
+  @Prop isShowRightArrow?: boolean
 
   build() {
     Row() {

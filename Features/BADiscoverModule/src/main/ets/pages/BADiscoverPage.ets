@@ -1,5 +1,11 @@
 import { XTEasyHUD } from '@jxt/xt_hud'
-import { BACommonConstants, BANavigationBarTitle, BARouter, BARouterPath } from '@ohos/bacommonmodule'
+import {
+  BABaseNaviContentView,
+  BACommonConstants,
+  BANavigationBarTitle,
+  BARouter,
+  BARouterPath
+} from '@ohos/bacommonmodule'
 import { BADiscoverListItemView } from '../view/BADiscoverListItemView'
 import { BADiscoverItemType, BADiscoverViewItem, BADiscoverViewModel } from '../viewmodel/BADiscoverViewModel'
 import { BADiscoverRouterPath } from '../router/BADiscoverRouterPath'
@@ -17,55 +23,18 @@ export struct BADiscoverPage {
   //   setStatusBar(ConfigurationConstant.ColorMode.COLOR_MODE_LIGHT);
   // }
 
-  build() {
-    Column() {
-      BADiscoverNavi()
-        .width(BACommonConstants.PERCENT_FULL)
-        .height(BACommonConstants.NAVIGATIONBAR_HEIGHT)
-
-      BADiscoverList()
-        .width(BACommonConstants.PERCENT_FULL)
-        .height('calc(100% - 64vp)')
-
-      // Column()
-      //   // .backgroundColor(Color.Red)
-      //   // .backgroundColor($r('app.color.list_background'))
-      //   .width(BACommonConstants.PERCENT_FULL)
-      //   .height(10)
-    }
-    // .backgroundColor($r('app.color.list_background'))
-    .width(BACommonConstants.PERCENT_FULL)
-    .height(BACommonConstants.PERCENT_FULL)
-    .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])
+  @Builder contentView() {
+    BADiscoverList()
   }
-}
 
-@Component
-struct BADiscoverNavi {
   build() {
-    Row() {
-      Column() {
-      }
-      .width("20%")
-      .layoutWeight(2)
 
-      BANavigationBarTitle({ title: '发现' })
-        .width('60%')
-        .height(BACommonConstants.PERCENT_FULL)
-        .layoutWeight(1)
-
-      Row() {
-        // Button()
-        //   .backgroundColor(Color.Red)
-        //   .width(44)
-        //   .height(44)
-        //   .margin({right: 20})
-      }
-      .width('20%')
-      .justifyContent(FlexAlign.End)
-      .layoutWeight(2)
+    Column() {
+      BABaseNaviContentView({
+        title: '发现',
+        contentView: this.contentView
+      })
     }
-    .backgroundColor(Color.White)
     .width(BACommonConstants.PERCENT_FULL)
     .height(BACommonConstants.PERCENT_FULL)
   }
@@ -96,7 +65,7 @@ struct BADiscoverList {
           }
           .divider({
             strokeWidth: 1,
-            // color: $r('app.color.list_divider'),
+            color: $r('app.color.list_divider'),
             startMargin: 60,
             endMargin: 0
           }) // 每行之间的分界线
@@ -105,13 +74,11 @@ struct BADiscoverList {
       .layoutWeight(1)
       .listDirection(Axis.Vertical) // 排列方向
     }
-    // .backgroundColor($r('app.color.list_background'))
+    .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
-
     // .height(BACommonConstants.PERCENT_FULL)
   }
 }
-
 
 // async function setStatusBar(currentMode: number): Promise<void> {
 //   // 获取应用主窗口。

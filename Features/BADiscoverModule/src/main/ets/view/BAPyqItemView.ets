@@ -10,7 +10,7 @@ import { BAPyqItemCommentModel, BAPyqItemModel } from '../viewmodel/BAPyqViewMod
 @Entry
 @Component
 export struct BAPyqItemView {
-  @BuilderParam itemModel: BAPyqItemModel
+  @Prop itemModel: BAPyqItemModel
 
   //code
   build() {
@@ -66,7 +66,7 @@ export struct BAPyqItemView {
 
 @Component
 struct BAPyqCommentView {
-  @BuilderParam comments: BAPyqItemCommentModel[]
+  @Prop comments: BAPyqItemCommentModel[]
 
   build() {
     Column() {
@@ -83,7 +83,7 @@ struct BAPyqCommentView {
 
 @Component
 struct BAPyqCommentItemView {
-  @BuilderParam commentModel: BAPyqItemCommentModel
+  @Prop commentModel: BAPyqItemCommentModel
 
   build() {
     Row() {

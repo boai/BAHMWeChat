@@ -4,7 +4,7 @@ import { BAAddressBookItem, BAAddressBookModel } from '../viewmodel/BAAddressBoo
 @Entry
 @Component
 export struct BAAddressBookItemView {
-  @BuilderParam itemModel: BAAddressBookItem
+  @Prop itemModel: BAAddressBookItem
 
   build() {
     Row() {
@@ -42,7 +42,7 @@ export struct BAAddressBookItemView {
 
 // @Component
 // export struct BAAddressBookSectionHeaderView {
-//   @BuilderParam sectionModel: BAAddressBookModel
+//   @Prop sectionModel: BAAddressBookModel
 //
 //   build() {
 //     Column() {

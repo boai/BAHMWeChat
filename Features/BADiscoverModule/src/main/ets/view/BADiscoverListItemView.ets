@@ -3,7 +3,7 @@ import { BADiscoverViewItem } from '../viewmodel/BADiscoverViewModel'
 
 @Component
 export struct BADiscoverListItemView {
-  @BuilderParam item: BADiscoverViewItem
+  @Prop item: BADiscoverViewItem
 
   build() {
     Row() {

@@ -1,5 +1,5 @@
 import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD';
-import { BACommonConstants, BALogger, BANavigationBarTitle } from '@ohos/bacommonmodule';
+import { BABaseNaviContentView, BACommonConstants, BALogger, BANavigationBarTitle } from '@ohos/bacommonmodule';
 import { BAAddressBookItemView } from '../view/BAAddressBookItemView';
 import {
   BAAddressBookItem,
@@ -15,29 +15,35 @@ export struct BAAddressBookPage {
   // @State enterTypes: Array<EnterKeyType> = [EnterKeyType.Go, EnterKeyType.Search, EnterKeyType.Send, EnterKeyType.Done, EnterKeyType.Next, EnterKeyType.PREVIOUS, EnterKeyType.NEW_LINE]
   controller: SearchController = new SearchController()
 
+  @Builder
+  contentView() {
+    Search({ placeholder: '搜索', value: this.searchText, controller: this.controller })
+      .width('94%')
+      .height(44)
+      .backgroundColor('#F5F5F5')
+      .padding({ left: 8, right: 8 })
+      .enterKeyType(EnterKeyType.Go)
+      .onChange((value: string) => {
+        this.searchText = value
+      })
+      .onSubmit((value: string) => {
+        BALogger.info("trigger search onsubmit" + value, 'BAAddressBookPage')
+      })
+
+    BAAddressBookList()
+      .width(BACommonConstants.PERCENT_FULL)
+      .height('calc(100% - 64vp)')
+    // .height('83%')
+  }
+
   build() {
+
     Column() {
-      BAAddressBookNavi()
-        .width(BACommonConstants.PERCENT_FULL)
-        .height(BACommonConstants.NAVIGATIONBAR_HEIGHT)
-
-      Search({ placeholder: '搜索', value: this.searchText, controller: this.controller })
-        .width('94%')
-        .height(44)
-        .backgroundColor('#F5F5F5')
-        .padding({ left: 8, right: 8 })
-        .enterKeyType(EnterKeyType.Go)
-        .onChange((value: string) => {
-          this.searchText = value
-        })
-        .onSubmit((value: string) => {
-          BALogger.info("trigger search onsubmit" + value, 'BAAddressBookPage')
-        })
-
-      BAAddressBookList()
-        .width(BACommonConstants.PERCENT_FULL)
-        .height('calc(100% - 64vp - 44vp - 49vp)')
-      // .height('83%')
+      BABaseNaviContentView({
+        title: '发现',
+        rightIcon: $r('app.media.icon_friend_add'),
+        contentView: this.contentView
+      })
     }
     .width(BACommonConstants.PERCENT_FULL)
     .height(BACommonConstants.PERCENT_FULL)
@@ -167,6 +173,6 @@ struct BAAddressBookList {
     }
     .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
-    .height(BACommonConstants.PERCENT_FULL)
+    // .height(BACommonConstants.PERCENT_FULL)
   }
 }

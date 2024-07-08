@@ -11,7 +11,7 @@ import { BAStringUtil } from '../util/BAStringUtil'
 
 @Component
 export struct BANavigationBarTitle {
-  @BuilderParam title?: string | undefined
+  @Prop title?: string | undefined
 
   build() {
     Row() {
