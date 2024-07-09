@@ -42,34 +42,65 @@ export struct BADiscoverPage {
 
 @Component
 struct BADiscoverList {
+  @State dataList: Array<BADiscoverViewItem[]> = BADiscoverViewModel.datas
+
   build() {
     Column() {
       List({ space: 10, initialIndex: 0 }) {
-        ForEach(BADiscoverViewModel.datas, (items: BADiscoverViewItem[], section?: number) => {
-          ListItemGroup() {
-            ForEach(items, (item: BADiscoverViewItem, row?: number) => {
-              ListItem() {
-                BADiscoverListItemView({ item: item })
-                  .width(BACommonConstants.PERCENT_FULL)
-                  .height(56)
-                  .onClick(() => {
-                    if (item.itemType == BADiscoverItemType.pyq) {
-                      // 通过 BARouter 跳转
-                      BARouter.openUrl(BARouterPath.getAppRouterPath(BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ))
-                    } else {
-                      XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
-                    }
-                  })
-              }
-            })
-          }
-          .divider({
-            strokeWidth: 1,
-            color: $r('app.color.list_divider'),
-            startMargin: 60,
-            endMargin: 0
-          }) // 每行之间的分界线
-        })
+        Repeat<BADiscoverViewItem[]>(this.dataList)
+          .each((items: RepeatItem<BADiscoverViewItem[]>) => {
+            ListItemGroup() {
+
+              Repeat<BADiscoverViewItem>(items.item)
+                .each((obj: RepeatItem<BADiscoverViewItem>) => {
+                  BADiscoverListItemView({ item: obj.item })
+                    .width(BACommonConstants.PERCENT_FULL)
+                    .height(56)
+                    .onClick(() => {
+                      if (obj.item.itemType == BADiscoverItemType.pyq) {
+                        // 通过 BARouter 跳转
+                        BARouter.openUrl(BARouterPath.getAppRouterPath(BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ))
+                      } else {
+                        XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+                      }
+                    })
+                })
+                .key((itemModel: BADiscoverViewItem) => itemModel.id.toString())
+            }
+            .divider({
+              strokeWidth: 1,
+              color: $r('app.color.list_divider'),
+              startMargin: 60,
+              endMargin: 0
+            }) // 每行之间的分界线
+          })
+          // .key((itemModel: BADiscoverViewItem) => itemModel.id.toString())
+
+        // ForEach(BADiscoverViewModel.datas, (items: BADiscoverViewItem[], section?: number) => {
+        //   ListItemGroup() {
+        //     ForEach(items, (item: BADiscoverViewItem, row?: number) => {
+        //       ListItem() {
+        //         BADiscoverListItemView({ item: item })
+        //           .width(BACommonConstants.PERCENT_FULL)
+        //           .height(56)
+        //           .onClick(() => {
+        //             if (item.itemType == BADiscoverItemType.pyq) {
+        //               // 通过 BARouter 跳转
+        //               BARouter.openUrl(BARouterPath.getAppRouterPath(BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ))
+        //             } else {
+        //               XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+        //             }
+        //           })
+        //       }
+        //     })
+        //   }
+        //   .divider({
+        //     strokeWidth: 1,
+        //     color: $r('app.color.list_divider'),
+        //     startMargin: 60,
+        //     endMargin: 0
+        //   }) // 每行之间的分界线
+        // })
       }
       .layoutWeight(1)
       .listDirection(Axis.Vertical) // 排列方向

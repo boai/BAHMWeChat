@@ -37,48 +37,13 @@ export struct BAAddressBookPage {
   }
 
   build() {
-
     Column() {
       BABaseNaviContentView({
-        title: '发现',
+        title: '通讯录',
         rightIcon: $r('app.media.icon_friend_add'),
         contentView: this.contentView
       })
     }
-    .width(BACommonConstants.PERCENT_FULL)
-    .height(BACommonConstants.PERCENT_FULL)
-  }
-}
-
-@Component
-struct BAAddressBookNavi {
-  build() {
-    Row() {
-      Column() {
-      }
-      .width("20%")
-      .layoutWeight(2)
-
-      BANavigationBarTitle({ title: '发现' })
-        .width('60%')
-        .height(BACommonConstants.PERCENT_FULL)
-        .layoutWeight(1)
-
-      Row() {
-        Image($r('app.media.icon_friend_add'))
-          .width(28)
-          .height(28)
-          .objectFit(ImageFit.Auto)
-          .margin({ right: 20 })
-          .onClick(() => {
-            XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
-          })
-      }
-      .width('20%')
-      .justifyContent(FlexAlign.End)
-      .layoutWeight(2)
-    }
-    .backgroundColor(Color.White)
     .width(BACommonConstants.PERCENT_FULL)
     .height(BACommonConstants.PERCENT_FULL)
   }
@@ -110,33 +75,57 @@ struct BAAddressBookList {
   build() {
     Stack({ alignContent: Alignment.End }) {
       List({ space: 0, scroller: this.listScroller }) {
-        ForEach(BAAddressBookViewModel.datas, (sectionModel: BAAddressBookModel, section?: number) => {
-          ListItemGroup({
-            header: this.isShowHeader(sectionModel) ? this.itemHead(sectionModel.sectionTitle) : undefined
-          }) {
-            ForEach(sectionModel.items, (itemModel: BAAddressBookItem, row?: number) => {
-              ListItem() {
-                BAAddressBookItemView({ itemModel: itemModel })
-                  .width(BACommonConstants.PERCENT_FULL)
-                  .height(60)
-                  .onClick(() => {
-                    XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
-                  })
-              }
-            })
-          }
-          .divider({
-            strokeWidth: 1,
-            color: ($r('app.color.list_divider'))
+        // ForEach(BAAddressBookViewModel.datas, (sectionModel: BAAddressBookModel, section?: number) => {
+        //   ListItemGroup({
+        //     header: this.isShowHeader(sectionModel) ? this.itemHead(sectionModel.sectionTitle) : undefined
+        //   }) {
+        //     ForEach(sectionModel.items, (itemModel: BAAddressBookItem, row?: number) => {
+        //       ListItem() {
+        //         BAAddressBookItemView({ itemModel: itemModel })
+        //           .width(BACommonConstants.PERCENT_FULL)
+        //           .height(60)
+        //           .onClick(() => {
+        //             XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+        //           })
+        //       }
+        //     })
+        //   }
+        //   .divider({
+        //     strokeWidth: 1,
+        //     color: ($r('app.color.list_divider'))
+        //   })
+        // })
+
+        Repeat<BAAddressBookModel>(BAAddressBookViewModel.datas)
+          .each((sectionModel: RepeatItem<BAAddressBookModel>) => {
+            ListItemGroup({
+              header: this.isShowHeader(sectionModel.item) ? this.itemHead(sectionModel.item.sectionTitle) : undefined
+            }) {
+              Repeat<BAAddressBookItem>(sectionModel.item.items)
+                .each((obj: RepeatItem<BAAddressBookItem>) => {
+                  BAAddressBookItemView({ itemModel: obj.item })
+                    .width(BACommonConstants.PERCENT_FULL)
+                    .height(60)
+                    .onClick(() => {
+                      XTEasyHUD.showToast('点击了：' + obj.item.name)
+                    })
+                })
+                .key((itemModel: BAAddressBookItem) => itemModel.id.toString())
+            }
+            .divider({
+              strokeWidth: 1,
+              color: $r('app.color.list_divider'),
+              startMargin: 60,
+              endMargin: 0
+            }) // 每行之间的分界线
           })
-        })
+        // .key((itemModel: BADiscoverViewItem) => itemModel.id.toString())
       }
       .layoutWeight(1)
       .listDirection(Axis.Vertical)
       .onScrollIndex((firstIndex: number) => {
         this.selectedIndex = firstIndex
       })
-
 
       AlphabetIndexer({ arrayValue: this.indexValues, selected: this.selectedIndex })
         .align(Alignment.End)
