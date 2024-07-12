@@ -9,8 +9,9 @@ import { BAPyqItemView } from '../view/BAPyqItemView'
 import { BAPyqItemModel, BAPyqViewModel } from '../viewmodel/BAPyqViewModel'
 import { BADiscoverRouterPath } from '../router/BADiscoverRouterPath'
 import App from '@system.app'
-import { BAPyqNaviBarView } from '../view/BAPyqNaviBarView'
 import { BANavigationBar } from '@ohos/bacommonmodule/src/main/ets/view/BANavigationBar'
+import { router } from '@kit.ArkUI'
+import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD'
 
 
 @Entry({ routeName: BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ })
@@ -27,8 +28,8 @@ export struct BAPyqPage {
   pyqHead() {
     BAPyqHeaderView()
       .width(BACommonConstants.PERCENT_FULL)
-      .height('40%')
     .backgroundColor($r('app.color.list_background'))
+      .height('35%')
   }
 
   build() {
@@ -71,10 +72,16 @@ export struct BAPyqPage {
       // .layoutWeight(2)
 
       BANavigationBar({
-        leftIcon: $r('app.media.icon_back'),
+        // leftIcon: $r('app.media.icon_back'),
         title: this.showTitle ? '朋友圈' : '',
         rightIcon: $r('app.media.icon_camera'),
-        navBarBgColor: this.navBarBgColor
+        navBarBgColor: this.navBarBgColor,
+        onBackClick: () => {
+          router.back()
+        },
+        onRightButtonClick: () => {
+          XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+        }
       })
         .width(BACommonConstants.PERCENT_FULL)
         .height(BACommonConstants.NAVIGATIONBAR_HEIGHT)

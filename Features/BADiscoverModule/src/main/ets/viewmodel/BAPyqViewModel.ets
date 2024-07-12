@@ -105,7 +105,7 @@ export interface BAPyqItemModel {
   contentId: number
   userIcon: Resource | undefined
   userName: string | undefined
-  content: string | undefined
+  content: string
   images: Resource[] | string[] | undefined
   video: Resource | string | undefined
   time: string | undefined

@@ -12,6 +12,9 @@ export struct BABaseNaviContentView {
   @Prop title?: string | undefined
   @Prop rightIcon?: Resource | undefined
   @Prop navBarBgColor?: string
+  @BuilderParam onBackClick?: () => void
+  @BuilderParam onRightButtonClick?: () => void
+
   @BuilderParam contentView: () => void
 
   //code
@@ -21,7 +24,9 @@ export struct BABaseNaviContentView {
         leftIcon: this.leftIcon,
         title: this.title,
         rightIcon: this.rightIcon,
-        navBarBgColor: this.navBarBgColor
+        navBarBgColor: this.navBarBgColor,
+        onBackClick: this.onBackClick,
+        onRightButtonClick: this.onRightButtonClick
       })
         .width(BACommonConstants.PERCENT_FULL)
         .height(BACommonConstants.NAVIGATIONBAR_HEIGHT)

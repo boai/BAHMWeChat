@@ -37,6 +37,8 @@ export struct BANavigationBar {
   @Prop title?: string | undefined
   @Prop rightIcon?: Resource | undefined
   @Prop navBarBgColor?: string
+  @BuilderParam onBackClick?: () => void
+  @BuilderParam onRightButtonClick?: () => void
 
   //code
   build() {
@@ -53,6 +55,7 @@ export struct BANavigationBar {
             .aspectRatio(1)
             .width(28)
             .margin({ left: 18 })
+            .onClick(this.onBackClick)
         }
       }
       .width("10%")
@@ -86,6 +89,7 @@ export struct BANavigationBar {
             .margin({ right: 18 })
             .onClick(() => {
             })
+            .onClick(this.onRightButtonClick)
         }
       }
       .width('10%')

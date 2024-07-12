@@ -8,8 +8,7 @@ export class BADiscoverRouterPath {
  //自定义路由path
 
  //discover组件
- // static readonly ROUTERPATH_DISCOVER_PYQ =
- static readonly ROUTERPATH_DISCOVER_PYQ = '/discover/pyq'
+ static readonly ROUTERPATH_DISCOVER_PYQ = '/badiscovermodule/BAPyqPage'
 
 
 }

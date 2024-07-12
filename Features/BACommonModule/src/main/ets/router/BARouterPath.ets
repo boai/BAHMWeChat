@@ -6,6 +6,8 @@
 
 export class BARouterPath {
 
+  //示例：'http://baapp/badiscovermodule/BAPyqPage?type=1&name=博爱'
+
   static readonly HOST_APP = 'baapp'
   static readonly HOST_H5 = 'bah5'
   static readonly HOST_MINIPROJECT = 'baminiProject'

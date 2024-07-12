@@ -13,11 +13,17 @@ import { BALogger } from '../util/BALogger';
 export class BARouter {
   // 自定义路由跳转
   public static openUrl(urlString: string): void {
-    // 如果是自定义hbh地址，解析URI参数和路径
+    //示例：'http://baapp/badiscovermodule/BAPyqPage?type=1&name=博爱'
+    // 如果是自定义url地址，解析URI参数和路径
     const url = Url.URL.parseURL(urlString);
+    if (!url) {
+      BALogger.info("找不到对应路由【" + urlString + "】，请检查路由配置", 'BARouter')
+      return
+    }
+    BALogger.info("进入路由跳转：" + urlString, 'BARouter')
+
     const hostname = url.hostname
     const pathname = url.pathname
-    const params = url.params
     // Router参数类型为Record<string, string>
     let newParams: Record<string, string> = {};
     // 解析 uri参数
@@ -25,14 +31,13 @@ export class BARouter {
       newParams[key] = value;
     });
 
-    const logInfo = "进入路由跳转：" + urlString
-    BALogger.info(logInfo, 'BARouter')
+    //路由拦截...
 
     if (hostname === BARouterPath.HOST_APP) {
       //app路由
       router.pushNamedRoute({
         name: pathname,
-        params: params,
+        params: newParams,
       }, router.RouterMode.Standard, (err) => {
         if (err) {
           // 如果跳转失败，再跳转到未找到页面
@@ -47,7 +52,7 @@ export class BARouter {
       //小程序路由
 
     } else {
-      BALogger.info("找不到对应路由，请检查路由配置")
+      BALogger.info("找不到对应路由，请检查路由配置", 'BARouter')
     }
   }
 }

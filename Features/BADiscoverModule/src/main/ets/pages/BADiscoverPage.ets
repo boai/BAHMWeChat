@@ -59,7 +59,7 @@ struct BADiscoverList {
                     .onClick(() => {
                       if (obj.item.itemType == BADiscoverItemType.pyq) {
                         // 通过 BARouter 跳转
-                        BARouter.openUrl(BARouterPath.getAppRouterPath(BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ))
+                        BARouter.openUrl(BARouterPath.getAppRouterPath(BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ) + "?type=1&name=博爱")
                       } else {
                         XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
                       }

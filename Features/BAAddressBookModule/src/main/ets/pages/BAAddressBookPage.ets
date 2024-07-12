@@ -41,6 +41,9 @@ export struct BAAddressBookPage {
       BABaseNaviContentView({
         title: '通讯录',
         rightIcon: $r('app.media.icon_friend_add'),
+        onRightButtonClick: () => {
+          XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+        },
         contentView: this.contentView
       })
     }
