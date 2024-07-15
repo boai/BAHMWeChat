@@ -1,9 +1,11 @@
 {
-  "name": "bacommonmodule",
+  "name": "baroutermodule",
   "version": "1.0.0",
   "description": "Please describe the basic information.",
   "main": "Index.ets",
-  "author": "boai",
+  "author": "",
   "license": "Apache-2.0",
-  "dependencies": {}
+  "dependencies": {
+    "@ohos/bacommonmodule": "file:../../Features/BACommonModule"
+  }
 }

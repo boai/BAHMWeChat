@@ -50,6 +50,10 @@
     {
       "name": "BAAddressBookModule",
       "srcPath": "./Features/BAAddressBookModule",
+    },
+    {
+      "name": "BARouterModule",
+      "srcPath": "./Features/BARouterModule",
     }
   ]
 }
