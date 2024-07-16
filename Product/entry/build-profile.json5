@@ -1,6 +1,20 @@
 {
   "apiType": "stageMode",
   "buildOption": {
+    "arkOptions": {
+      "runtimeOnly": {
+        "sources": [
+        ],
+        "packages": [
+          "@ohos/bacommonmodule",
+          "@ohos/dynamicsrouter",
+          "@ohos/bahomemodule",
+          "@ohos/baaddressbookmodule",
+          "@ohos/discovermodule",
+          "@ohos/baminemodule"
+        ]
+      }
+    }
   },
   "buildOptionSet": [
     {
@@ -13,7 +27,19 @@
               "./obfuscation-rules.txt"
             ]
           }
-        }
+        },
+//        "runtimeOnly": {
+//          "sources": [
+//          ],
+//          "packages": [
+//            "@ohos/bacommonmodule",
+//            "@ohos/dynamicsrouter",
+//            "@ohos/bahomemodule",
+//            "@ohos/baaddressbookmodule",
+//            "@ohos/discovermodule",
+//            "@ohos/baminemodule"
+//          ]
+//        }
       }
     },
   ],

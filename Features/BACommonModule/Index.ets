@@ -11,7 +11,7 @@ export { BAStringUtil } from './src/main/ets/util/BAStringUtil'
 export { BATextUtil } from './src/main/ets/util/BATextUtil'
 
 //router
-export { BARouter } from './src/main/ets/router/BARouter'
+export { BARouter2 } from './src/main/ets/router/BARouter2'
 
 export { BARouterPath } from './src/main/ets/router/BARouterPath'
 

@@ -3,18 +3,20 @@
  * @Author boai
  * @DateTime 2024/7/4 13:43:18
  */
-import { BACommonConstants, BARouterPath } from '@ohos/bacommonmodule'
+import { BACommonConstants } from '@ohos/bacommonmodule'
 import { BAPyqHeaderView } from '../view/BAPyqHeaderView'
 import { BAPyqItemView } from '../view/BAPyqItemView'
 import { BAPyqItemModel, BAPyqViewModel } from '../viewmodel/BAPyqViewModel'
-import { BADiscoverRouterPath } from '../router/BADiscoverRouterPath'
+// import { BADiscoverRouterPath } from '../generated/BADiscoverRouterPath'
 import App from '@system.app'
 import { BANavigationBar } from '@ohos/bacommonmodule/src/main/ets/view/BANavigationBar'
 import { router } from '@kit.ArkUI'
 import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD'
+import { AppRouter } from '@ohos/dynamicsrouter'
 
 
-@Entry({ routeName: BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ })
+@AppRouter({name: "discovermodule/BAPyqPage"})
+// @Entry({ routeName: BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ })
 @Component
 export struct BAPyqPage {
   //code
@@ -28,8 +30,8 @@ export struct BAPyqPage {
   pyqHead() {
     BAPyqHeaderView()
       .width(BACommonConstants.PERCENT_FULL)
-    .backgroundColor($r('app.color.list_background'))
       .height('35%')
+    // .backgroundColor($r('app.color.list_background'))
   }
 
   build() {
@@ -50,7 +52,7 @@ export struct BAPyqPage {
         }
         .divider({
           strokeWidth: 1,
-          color: $r('app.color.list_divider'),
+          // color: $r('app.color.list_divider'),
           startMargin: 0,
           endMargin: 0
         }) // 每行之间的分界线
@@ -77,10 +79,10 @@ export struct BAPyqPage {
         rightIcon: $r('app.media.icon_camera'),
         navBarBgColor: this.navBarBgColor,
         onBackClick: () => {
-          router.back()
+          // router.back()
         },
         onRightButtonClick: () => {
-          XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+          // XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
         }
       })
         .width(BACommonConstants.PERCENT_FULL)

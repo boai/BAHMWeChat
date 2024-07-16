@@ -1,7 +1,7 @@
-export { BADynamicsRouter } from './src/main/ets/components/BADynamicsRouter'
+export { DynamicsRouter } from './src/main/ets/router/DynamicsRouter'
 
-export { BARouterInterceptor } from './src/main/ets/components/BARouterInterceptor'
+export { BARouterInterceptor } from './src/main/ets/router/BARouterInterceptor'
 
-export { BARouterInfo } from './src/main/ets/components/BARouterInfo'
+export { AppRouterInfo } from './src/main/ets/router/AppRouterInfo'
 
-export { BARouter } from './src/main/ets/components/BARouter'
+export { AppRouter } from './src/main/ets/router/AppRouter'

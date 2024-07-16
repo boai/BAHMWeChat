@@ -3,7 +3,7 @@
  * @Author boai
  * @DateTime 2024/7/15 11:09:55
  */
-import { BARouterInfo, BARouterMapModel } from './BARouterInfo';
+import { AppRouterInfo, BARouterMapModel } from './AppRouterInfo';
 import { resourceManager } from '@kit.LocalizationKit';
 import { util } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -12,7 +12,7 @@ import { BALogger } from '@ohos/bacommonmodule';
 // 加载路由
 export namespace BARouterLoader {
   // 加载所有路由表文件
-  export function load(dir: string, routerMap: Map<string, BARouterInfo>, context: Context) {
+  export function load(dir: string, routerMap: Map<string, AppRouterInfo>, context: Context) {
     const rm: resourceManager.ResourceManager = context.resourceManager
     try {
       rm.getRawFileList(dir).then((value: Array<string>) => {
@@ -37,8 +37,8 @@ export namespace BARouterLoader {
     }
   }
 
-  function loadRouterMap(routerMapModel: BARouterMapModel, routerMap: Map<string, BARouterInfo>): void {
-    routerMapModel.routerMap.forEach((routerInfo: BARouterInfo) => {
+  function loadRouterMap(routerMapModel: BARouterMapModel, routerMap: Map<string, AppRouterInfo>): void {
+    routerMapModel.routerMap.forEach((routerInfo: AppRouterInfo) => {
       if (routerMap.has(routerInfo.name)) {
         BALogger.warn(`重复注册路由：${routerInfo.name}`)
       } else {

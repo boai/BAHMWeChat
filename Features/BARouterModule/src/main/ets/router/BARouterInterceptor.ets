@@ -33,13 +33,13 @@ export class BARouterInterceptor {
    * @returns
    */
   public static interceptor(appUri: string, param?: string): boolean {
+    // 循环拦截器容器中所有的子模块自定义的拦截函数
     for (let i = 0; i < BARouterInterceptor.list.length; i++) {
       // 如果子模块拦截函数返回true，即需要拦截
-      if (BARouterInterceptor.list[i].executeFunction(appUri, param)) {
+      if (BARouterInterceptor.list[i].executeFunction(appUri, param))
         return true
-      }
-      // 否则就放行
-      return false
     }
+    // 否则就放行
+    return false
   }
 }

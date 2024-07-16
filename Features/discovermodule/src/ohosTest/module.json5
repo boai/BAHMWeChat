@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "BADiscoverModule_test",
+    "name": "discovermodule_test",
     "type": "feature",
     "deviceTypes": [
       "default",

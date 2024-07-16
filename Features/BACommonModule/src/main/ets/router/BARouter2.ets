@@ -1,5 +1,5 @@
 /**
- * @Class BARouter.ets
+ * @Class BARouter2.ets
  * @Author boai
  * @DateTime 2024/7/4 18:44:37
  */
@@ -10,7 +10,7 @@ import { BARouterPath } from './BARouterPath';
 import { BALogger } from '../util/BALogger';
 
 // Router管理类
-export class BARouter {
+export class BARouter2 {
   // 自定义路由跳转
   public static openUrl(urlString: string): void {
     //示例：'http://baapp/badiscovermodule/BAPyqPage?type=1&name=博爱'

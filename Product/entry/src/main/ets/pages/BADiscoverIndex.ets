@@ -1,4 +1,4 @@
-import { BADiscoverPage } from '@ohos/badiscovermodule'
+import { BADiscoverPage } from '@ohos/discovermodule'
 
 @Entry
 @Component

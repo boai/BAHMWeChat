@@ -1,4 +1,5 @@
 import { BACommonConstants } from '@ohos/bacommonmodule'
+// import { DynamicsRouter } from '@ohos/baroutermodule'
 import { BATabbarModel } from '../viewModel/BATabbarModel'
 import { BATabbarViewModel } from '../viewModel/BATabbarViewModel'
 import { BAAddressBookIndex } from './BAAddressBookIndex'

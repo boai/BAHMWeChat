@@ -9,4 +9,10 @@
 /.clang-format
 /.clang-tidy
 **/.test
-/.appanalyzer
+**/oh-package-lock.json5
+/hvigor/hvigor-wrapper.js
+/build-profile.json5
+**/BuildProfile.ets
+/dependencies
+/Features/**/src/main/ets/generated
+/Features/**/src/main/resources/rawfile/routerMap

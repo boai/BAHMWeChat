@@ -7,10 +7,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@ohos/bacommonmodule": "file:../../Features/BACommonModule",
-    "@ohos/baroutermodule": "file:../../Features/BARouterModule",
+    "@ohos/dynamicsrouter": "file:../../Features/BARouterModule",
     "@ohos/bahomemodule": "file:../../Features/BAHomeModule",
     "@ohos/baaddressbookmodule": "file:../../Features/BAAddressBookModule",
-    "@ohos/badiscovermodule": "file:../../Features/BADiscoverModule",
+    "@ohos/discovermodule": "file:../../Features/discovermodule",
     "@ohos/baminemodule": "file:../../Features/BAMineModule"
   }
 }

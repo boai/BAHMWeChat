@@ -5,7 +5,7 @@
  */
 
 // 自定义装饰器
-export function BARouter(param: BARouterParam) {
+export function AppRouter(param: BARouterParam) {
   return Object
 }
 

@@ -1,5 +1,5 @@
 import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD';
-import { BABaseNaviContentView, BACommonConstants, BALogger, BANavigationBarTitle } from '@ohos/bacommonmodule';
+import { BABaseNaviContentView, BACommonConstants, BALogger } from '@ohos/bacommonmodule';
 import { BAAddressBookItemView } from '../view/BAAddressBookItemView';
 import {
   BAAddressBookItem,
@@ -42,7 +42,7 @@ export struct BAAddressBookPage {
         title: '通讯录',
         rightIcon: $r('app.media.icon_friend_add'),
         onRightButtonClick: () => {
-          XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+          // XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
         },
         contentView: this.contentView
       })

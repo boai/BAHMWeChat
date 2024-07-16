@@ -1,6 +1,7 @@
 {
   "modelVersion": "5.0.0",
   "dependencies": {
+    "@app/ets-generator": "file:../libs/autobuildrouter-1.0.1.tgz"
   },
   "execution": {
     // "analyze": "normal",                     /* Define the build analyze mode. Value: [ "normal" | "advanced" | false ]. Default: "normal" */

@@ -1,11 +1,11 @@
 /**
- * @Class BARouterInfo.ets
+ * @Class AppRouterInfo.ets
  * @Author boai
  * @DateTime 2024/7/15 09:16:41
  */
 
 // 路由信息
-export interface BARouterInfo {
+export interface AppRouterInfo {
   name: string
   pageModule: string
   registerFunction?: string
@@ -30,11 +30,11 @@ export namespace BARouterModel {
 
 // 路由表
 export class BARouterMapModel {
-  routerMap: BARouterInfo[] = []
+  routerMap: AppRouterInfo[] = []
 }
 
 // 主页路由信息
-export const HOME_PAGE: BARouterInfo = {
+export const HOME_PAGE: AppRouterInfo = {
   name: "EntryView",
   pageModule: "entry",
   registerFunction: ""
