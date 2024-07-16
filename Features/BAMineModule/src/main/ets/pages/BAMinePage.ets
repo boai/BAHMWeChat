@@ -1,7 +1,9 @@
 import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD';
 import { BACommonConstants } from '@ohos/bacommonmodule';
+import { AppRouter, DynamicsRouter } from '@ohos/dynamicsrouter';
 import { BAMineViewModel, BAMineViewArrObject, BAMineViewItem } from '../viewmodel/BAMineViewModel';
 
+@AppRouter({name: "baminemodule/BAMinePage"})
 @Entry
 @Component
 export struct BAMinePage {
@@ -31,6 +33,9 @@ export struct BAMinePage {
                     .height(56)
                     .onClick(() => {
                       XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+                      if (subItem.title == '设置') {
+                        DynamicsRouter.pushUri("baminemodule/BAMineSettingPage")
+                      }
                     })
                 }
               })

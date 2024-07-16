@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "BAMineModule",
+    "name": "baminemodule",
     "type": "har",
     "deviceTypes": [
       "default",

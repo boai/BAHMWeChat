@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "BAAddressBookModule",
+    "name": "baaddressbookmodule",
     "type": "har",
     "deviceTypes": [
       "default",

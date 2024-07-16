@@ -1,5 +1,6 @@
 import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD';
 import { BABaseNaviContentView, BACommonConstants, BALogger } from '@ohos/bacommonmodule';
+import { AppRouter, DynamicsRouter } from '@ohos/dynamicsrouter';
 import { BAAddressBookItemView } from '../view/BAAddressBookItemView';
 import {
   BAAddressBookItem,
@@ -8,6 +9,7 @@ import {
   BAAddressBookViewModel
 } from '../viewmodel/BAAddressBookViewModel';
 
+@AppRouter({ name: "baaddressbookmodule/BAAddressBookPage" })
 @Entry
 @Component
 export struct BAAddressBookPage {
@@ -110,7 +112,8 @@ struct BAAddressBookList {
                     .width(BACommonConstants.PERCENT_FULL)
                     .height(60)
                     .onClick(() => {
-                      XTEasyHUD.showToast('点击了：' + obj.item.name)
+                      // XTEasyHUD.showToast('点击了：' + obj.item.name)
+                      DynamicsRouter.pushUri("baaddressbookmodule/BAPersonDetailPage")
                     })
                 })
                 .key((itemModel: BAAddressBookItem) => itemModel.id.toString())

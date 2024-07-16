@@ -10,7 +10,7 @@ import { BADiscoverItemType, BADiscoverViewItem, BADiscoverViewModel } from '../
 import { DynamicsRouter, AppRouter } from '@ohos/dynamicsrouter'
 
 // @Entry
-@AppRouter({ name: "discovermodule/BADiscoverPage" })
+@AppRouter({ name: "badiscovermodule/BADiscoverPage" })
 @Component
 export struct BADiscoverPage {
   // // 进入案例时设置状态栏颜色
@@ -60,7 +60,7 @@ struct BADiscoverList {
                       if (obj.item.itemType == BADiscoverItemType.pyq) {
                         // 通过 BARouter 跳转
                         // BARouter.openUrl(BARouterPath.getAppRouterPath(BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ) + "?type=1&name=博爱")
-                        DynamicsRouter.pushUri("discovermodule/BAPyqPage")
+                        DynamicsRouter.pushUri("badiscovermodule/BAPyqPage")
                       } else {
                         XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
                       }
@@ -70,7 +70,7 @@ struct BADiscoverList {
             }
             .divider({
               strokeWidth: 1,
-              // color: $r('app.color.list_divider'),
+              color: $r('app.color.list_divider'),
               startMargin: 60,
               endMargin: 0
             }) // 每行之间的分界线
@@ -106,7 +106,7 @@ struct BADiscoverList {
       .layoutWeight(1)
       .listDirection(Axis.Vertical) // 排列方向
     }
-    // .backgroundColor($r('app.color.list_background'))
+    .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
     // .height(BACommonConstants.PERCENT_FULL)
   }

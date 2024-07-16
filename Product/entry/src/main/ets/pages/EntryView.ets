@@ -4,7 +4,6 @@ import { BATabbarIndex } from './BATabbarIndex';
 @Entry
 @Component
 struct EntryView {
-  @State message: string = 'Hello World';
 
   @Builder
   pageMap(name: string, param: ESObject) {

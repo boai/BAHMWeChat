@@ -10,7 +10,7 @@
     "@ohos/dynamicsrouter": "file:../../Features/BARouterModule",
     "@ohos/bahomemodule": "file:../../Features/BAHomeModule",
     "@ohos/baaddressbookmodule": "file:../../Features/BAAddressBookModule",
-    "@ohos/discovermodule": "file:../../Features/discovermodule",
+    "@ohos/badiscovermodule": "file:../../Features/BADiscoverModule",
     "@ohos/baminemodule": "file:../../Features/BAMineModule"
   }
 }

@@ -10,7 +10,7 @@
           "@ohos/dynamicsrouter",
           "@ohos/bahomemodule",
           "@ohos/baaddressbookmodule",
-          "@ohos/discovermodule",
+          "@ohos/badiscovermodule",
           "@ohos/baminemodule"
         ]
       }

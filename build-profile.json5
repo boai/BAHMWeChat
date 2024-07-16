@@ -36,7 +36,7 @@
       "srcPath": "./Features/BAHomeModule",
     },
     {
-      "name": "BAMineModule",
+      "name": "baminemodule",
       "srcPath": "./Features/BAMineModule",
     },
     {
@@ -44,11 +44,11 @@
       "srcPath": "./Features/BACommonModule",
     },
     {
-      "name": "discovermodule",
-      "srcPath": "./Features/discovermodule"
+      "name": "badiscovermodule",
+      "srcPath": "./Features/BADiscoverModule"
     },
     {
-      "name": "BAAddressBookModule",
+      "name": "baaddressbookmodule",
       "srcPath": "./Features/BAAddressBookModule",
     },
     {

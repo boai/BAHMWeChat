@@ -12,10 +12,10 @@ import App from '@system.app'
 import { BANavigationBar } from '@ohos/bacommonmodule/src/main/ets/view/BANavigationBar'
 import { router } from '@kit.ArkUI'
 import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD'
-import { AppRouter } from '@ohos/dynamicsrouter'
+import { AppRouter, DynamicsRouter } from '@ohos/dynamicsrouter'
 
 
-@AppRouter({name: "discovermodule/BAPyqPage"})
+@AppRouter({name: "badiscovermodule/BAPyqPage"})
 // @Entry({ routeName: BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ })
 @Component
 export struct BAPyqPage {
@@ -31,7 +31,7 @@ export struct BAPyqPage {
     BAPyqHeaderView()
       .width(BACommonConstants.PERCENT_FULL)
       .height('35%')
-    // .backgroundColor($r('app.color.list_background'))
+    .backgroundColor($r('app.color.list_background'))
   }
 
   build() {
@@ -52,7 +52,7 @@ export struct BAPyqPage {
         }
         .divider({
           strokeWidth: 1,
-          // color: $r('app.color.list_divider'),
+          color: $r('app.color.list_divider'),
           startMargin: 0,
           endMargin: 0
         }) // 每行之间的分界线
@@ -74,15 +74,16 @@ export struct BAPyqPage {
       // .layoutWeight(2)
 
       BANavigationBar({
-        // leftIcon: $r('app.media.icon_back'),
+        leftIcon: $r('app.media.icon_back'),
         title: this.showTitle ? '朋友圈' : '',
         rightIcon: $r('app.media.icon_camera'),
         navBarBgColor: this.navBarBgColor,
         onBackClick: () => {
           // router.back()
+          DynamicsRouter.popAppRouter()
         },
         onRightButtonClick: () => {
-          // XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+          XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
         }
       })
         .width(BACommonConstants.PERCENT_FULL)
