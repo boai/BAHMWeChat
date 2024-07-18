@@ -3,7 +3,8 @@
   "description": "Please describe the basic information.",
   "dependencies": {
     "@jxt/xt_hud": "^1.1.1",
-    "@yunkss/eftool": "^1.2.0"
+    "@yunkss/eftool": "^1.2.0",
+    "@rex/fast_https_request": "^1.0.1"
   },
   "devDependencies": {
     "@ohos/hypium": "1.0.18",

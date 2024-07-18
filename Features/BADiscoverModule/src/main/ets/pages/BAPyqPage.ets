@@ -13,6 +13,7 @@ import { BANavigationBar } from '@ohos/bacommonmodule/src/main/ets/view/BANaviga
 import { router } from '@kit.ArkUI'
 import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD'
 import { AppRouter, DynamicsRouter } from '@ohos/dynamicsrouter'
+import { common } from '@kit.AbilityKit'
 
 
 @AppRouter({name: "badiscovermodule/BAPyqPage"})
@@ -20,13 +21,19 @@ import { AppRouter, DynamicsRouter } from '@ohos/dynamicsrouter'
 @Component
 export struct BAPyqPage {
   //code
-  @State simpleList: Array<BAPyqItemModel> = BAPyqViewModel.getDatas;
+  // @State simpleList: Array<BAPyqItemModel> = BAPyqViewModel.getDatas;
   @State showTitle: boolean = false
   @State navBarBgColor: string = ""
   private listScroller = new Scroller()
   private offsetY: number = 0
+  private dataList: Array<BAPyqItemModel> = []
 
-  @Builder
+  aboutToAppear() {
+    let context = getContext(this) as common.UIAbilityContext;
+    this.dataList = BAPyqViewModel.getDataList(context)
+  }
+
+    @Builder
   pyqHead() {
     BAPyqHeaderView()
       .width(BACommonConstants.PERCENT_FULL)
@@ -44,7 +51,7 @@ export struct BAPyqPage {
           //     BAPyqItemView({ itemModel: itemModel })
           //   }
           // })
-          Repeat<BAPyqItemModel>(this.simpleList)
+          Repeat<BAPyqItemModel>(this.dataList)
             .each((obj: RepeatItem<BAPyqItemModel>) => {
               BAPyqItemView({ itemModel: obj.item })
             })

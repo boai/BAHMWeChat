@@ -3,14 +3,44 @@
  * @Author boai
  * @DateTime 2024/7/4 15:54:10
  */
+// import { JSONArray, JSONObject, JSONUtil } from '@yunkss/eftool'
+import { Context } from '@ohos.abilityAccessCtrl';
+import { BALogger } from '@ohos/bacommonmodule';
+import { JSON, util } from '@kit.ArkTS';
+import { BusinessError } from '@kit.BasicServicesKit';
+import json from '@ohos.util.json';
 
 export enum BAPyqItemType {
-  default,
-  ad
+  default = 0,
+  ad = 1
 }
+
+let jsonPath: string = "data/pyqDataList.json"
 
 export class BAPyqViewModel {
   //code
+  static getDataList(context: Context): BAPyqItemModel[] {
+    let rawFile: Uint8Array;
+    try {
+      rawFile = context.resourceManager.getRawFileContentSync(jsonPath)
+      let jsonStr: string = util.TextDecoder.create('utf-8', { ignoreBOM: true }).decodeWithStream(rawFile);
+      let jsonObj = JSON.parse(jsonStr) as Record<string, Object>
+      let result = jsonObj["result"] as number
+      if (result == 1) {
+        let data: BAPyqItemModel[] = jsonObj["data"] as BAPyqItemModel[]
+        return data
+      } else {
+        return []
+      }
+    } catch (error) {
+      let code = (error as BusinessError).code
+      let message = (error as BusinessError).message
+      BALogger.error(`ResourceManager:callback getRawFileContent failed, error code: ${code}, message: ${message}.`,
+        'BAPyqViewModel');
+      return []
+    }
+  }
+
   static getDatas: BAPyqItemModel[] = [
     {
       type: BAPyqItemType.default,
@@ -120,6 +150,3 @@ export interface BAPyqItemCommentModel {
   userName: string | undefined
   content: string | undefined
 }
-
-
-
