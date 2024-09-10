@@ -43,7 +43,7 @@ export struct BAMinePage {
           }
           .divider({
             strokeWidth: 1,
-            color: $r('app.color.list_divider'),
+            // color: $r('app.color.list_divider'),
             startMargin: 60,
             endMargin: 0
           }) // 每行之间的分界线
@@ -58,7 +58,7 @@ export struct BAMinePage {
     }
     .width(BACommonConstants.PERCENT_FULL)
     .height(BACommonConstants.PERCENT_FULL)
-    .backgroundColor($r('app.color.list_background'))
+    // .backgroundColor($r('app.color.list_background'))
   }
 }
 

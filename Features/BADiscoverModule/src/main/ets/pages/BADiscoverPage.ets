@@ -2,12 +2,17 @@ import { XTEasyHUD } from '@jxt/xt_hud'
 import {
   BABaseNaviContentView,
   BACommonConstants,
-  BARouterPath
+  BALogger,
+  BARouterPath,
+  BAScannerUtil
 } from '@ohos/bacommonmodule'
 import { BADiscoverListItemView } from '../view/BADiscoverListItemView'
 import { BADiscoverItemType, BADiscoverViewItem, BADiscoverViewModel } from '../viewmodel/BADiscoverViewModel'
 // import { BADiscoverRouterPath } from '../generated/BADiscoverRouterPath'
 import { DynamicsRouter, AppRouter } from '@ohos/dynamicsrouter'
+import { scanBarcode, scanCore } from '@kit.ScanKit'
+import { hilog } from '@kit.PerformanceAnalysisKit'
+import { BusinessError } from '@kit.BasicServicesKit'
 
 // @Entry
 @AppRouter({ name: "badiscovermodule/BADiscoverPage" })
@@ -23,7 +28,8 @@ export struct BADiscoverPage {
   //   setStatusBar(ConfigurationConstant.ColorMode.COLOR_MODE_LIGHT);
   // }
 
-  @Builder contentView() {
+  @Builder
+  contentView() {
     BADiscoverList()
   }
 
@@ -61,8 +67,14 @@ struct BADiscoverList {
                         // 通过 BARouter 跳转
                         // BARouter.openUrl(BARouterPath.getAppRouterPath(BADiscoverRouterPath.ROUTERPATH_DISCOVER_PYQ) + "?type=1&name=博爱")
                         DynamicsRouter.pushUri("badiscovermodule/BAPyqPage")
+                      } else if (obj.item.id == 10004) {
+                        //扫一扫
+                        BAScannerUtil.onScan(getContext(this), { "pageType": "2" }, (result) => {
+                          let a = result.scanType
+
+                        })
                       } else {
-                        XTEasyHUD.showToast(BACommonConstants.TIP_FUNCTIONNOTDEVELOP)
+                        XTEasyHUD.showToast(`点击了：${obj.item.title}`)
                       }
                     })
                 })
@@ -75,7 +87,7 @@ struct BADiscoverList {
               endMargin: 0
             }) // 每行之间的分界线
           })
-          // .key((itemModel: BADiscoverViewItem) => itemModel.id.toString())
+        // .key((itemModel: BADiscoverViewItem) => itemModel.id.toString())
 
         // ForEach(BADiscoverViewModel.datas, (items: BADiscoverViewItem[], section?: number) => {
         //   ListItemGroup() {
@@ -108,6 +120,7 @@ struct BADiscoverList {
     }
     .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
+
     // .height(BACommonConstants.PERCENT_FULL)
   }
 }

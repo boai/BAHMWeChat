@@ -11,7 +11,8 @@
     "@ohos/bahomemodule": "file:../../Features/BAHomeModule",
     "@ohos/baaddressbookmodule": "file:../../Features/BAAddressBookModule",
     "@ohos/badiscovermodule": "file:../../Features/BADiscoverModule",
-    "@ohos/baminemodule": "file:../../Features/BAMineModule"
+    "@ohos/baminemodule": "file:../../Features/BAMineModule",
+//    "@ohos/batestmodule": "file:../../Features/BATestModule"
   }
 }
 

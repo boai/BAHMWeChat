@@ -1,3 +1,5 @@
+import { XTEasyHUD } from '@jxt/xt_hud/src/main/ets/components/XTEasyHUD'
+
 export enum BADiscoverItemType {
   default,
   pyq,
@@ -8,6 +10,11 @@ export enum BADiscoverItemType {
 }
 
 export class BADiscoverViewModel {
+
+
+
+
+
   static datas: BADiscoverViewItem[][] = [
     [
       {

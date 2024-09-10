@@ -67,7 +67,7 @@ struct BAAddressBookList {
         .fontSize(16)
         .margin({ left: 16 })
     }
-    .backgroundColor($r('app.color.list_background'))
+    // .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
     .height(40)
   }
@@ -120,7 +120,7 @@ struct BAAddressBookList {
             }
             .divider({
               strokeWidth: 1,
-              color: $r('app.color.list_divider'),
+              // color: $r('app.color.list_divider'),
               startMargin: 60,
               endMargin: 0
             }) // 每行之间的分界线
@@ -166,7 +166,7 @@ struct BAAddressBookList {
           console.info('onPopupSelected:' + index)
         })
     }
-    .backgroundColor($r('app.color.list_background'))
+    // .backgroundColor($r('app.color.list_background'))
     .width(BACommonConstants.PERCENT_FULL)
     // .height(BACommonConstants.PERCENT_FULL)
   }

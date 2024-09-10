@@ -103,6 +103,7 @@ export struct BAPyqItemView {
         .height(44)
         .borderRadius(6)
         .margin({ left: 16 })
+        // .objectFit(ImageFit.Contain)
 
       Column() {
         Column() {

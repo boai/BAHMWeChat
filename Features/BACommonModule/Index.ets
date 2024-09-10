@@ -10,6 +10,10 @@ export { BAStringUtil } from './src/main/ets/util/BAStringUtil'
 
 export { BATextUtil } from './src/main/ets/util/BATextUtil'
 
+export { BAScannerUtil } from './src/main/ets/util/BAScannerUtil'
+
+
+
 //router
 export { BARouter2 } from './src/main/ets/router/BARouter2'
 

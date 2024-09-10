@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/boai/.ohos/config/default_BAHMWeChat_trmsowQNMwPLkn5AHZOD1HnLlqSHRY7kplOolm6pj6I=.cer",
+          "storePassword": "0000001B8F93981BBD3FDBD531C6B284E55A6ADDB4F7197D3898E1261DEFB2FF6BCB9269C3766A0DADB1DE",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BABB1EC9011E42DE812841F753E4AD319161205DEFE9B45A57CAB972F7CEF7BA95477CF00D5D25A",
+          "profile": "/Users/boai/.ohos/config/default_BAHMWeChat_trmsowQNMwPLkn5AHZOD1HnLlqSHRY7kplOolm6pj6I=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/boai/.ohos/config/default_BAHMWeChat_trmsowQNMwPLkn5AHZOD1HnLlqSHRY7kplOolm6pj6I=.p12"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
