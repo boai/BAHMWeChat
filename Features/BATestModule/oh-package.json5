@@ -1,9 +1,9 @@
 {
-  "name": "baminemodule",
+  "name": "batestmodule",
   "version": "1.0.0",
   "description": "Please describe the basic information.",
   "main": "Index.ets",
-  "author": "boai",
+  "author": "",
   "license": "Apache-2.0",
   "dependencies": {
     "@jxt/xt_hud": "^1.1.1",

@@ -20,6 +20,7 @@ const LOGGER_TAG: string = "Dynamics import failed , reason : "
  * 2.通过registerBuilder接口，将需要动态加载的模块注册到路由中
  * 3.通过push接口，跳转到指定的模块页面
  */
+
 export class DynamicsRouter {
   static config: BARouterConfig
   // 路由表信息
@@ -116,7 +117,6 @@ export class DynamicsRouter {
     DynamicsRouter.referrer[0] = referrerModel.pageModule
     DynamicsRouter.referrer[1] = referrerModel.name
     BALogger.info(`From DynamicsRouter.routerStack pop preview module name is ${DynamicsRouter.referrer[0]}，path is ${DynamicsRouter.referrer[1]}`, 'DynamicsRouter')
-
     if (DynamicsRouter.routerStack.length > 1) {
       DynamicsRouter.routerStack.pop()
     } else {

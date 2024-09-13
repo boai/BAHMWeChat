@@ -1,4 +1,3 @@
-"use strict";
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 import { PluginConfig, etsGeneratorPlugin } from '@app/ets-generator';
 

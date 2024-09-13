@@ -73,6 +73,10 @@ struct BADiscoverList {
                           let a = result.scanType
 
                         })
+                      } else if (obj.item.id == 10005) {
+                        //baaddressbookmodule/BAAddressBookPage  batestmodule/BATestPage
+                        DynamicsRouter.pushUri("batestmodule/BATestPage")
+                        // DynamicsRouter.pushUri("baaddressbookmodule/BAAddressBookPage")
                       } else {
                         XTEasyHUD.showToast(`点击了：${obj.item.title}`)
                       }

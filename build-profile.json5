@@ -68,6 +68,10 @@
     {
       "name": "BARouterModule",
       "srcPath": "./Features/BARouterModule",
+    },
+    {
+      "name": "batestmodule",
+      "srcPath": "./Features/BATestModule",
     }
   ]
 }

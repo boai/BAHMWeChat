@@ -11,7 +11,8 @@
           "@ohos/bahomemodule",
           "@ohos/baaddressbookmodule",
           "@ohos/badiscovermodule",
-          "@ohos/baminemodule"
+          "@ohos/baminemodule",
+          "@ohos/batestmodule"
         ]
       }
     }
@@ -27,19 +28,7 @@
               "./obfuscation-rules.txt"
             ]
           }
-        },
-//        "runtimeOnly": {
-//          "sources": [
-//          ],
-//          "packages": [
-//            "@ohos/bacommonmodule",
-//            "@ohos/dynamicsrouter",
-//            "@ohos/bahomemodule",
-//            "@ohos/baaddressbookmodule",
-//            "@ohos/discovermodule",
-//            "@ohos/baminemodule"
-//          ]
-//        }
+        }
       }
     },
   ],
